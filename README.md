@@ -199,6 +199,171 @@ graph TD
     %% Comunicação
     USUARIOS --- AVISOS[Avisos]
 ```
+## 🎨 Prototipação da Interface (Wireframe)
+
+Antes do desenvolvimento completo do frontend de qualquer projeto, é uma prática recomendada realizar a prototipação da interface utilizando wirerames. Um wireframe é uma representação visual simplificada da interface de um sistema, utilizada para planejar a organização dos elementos da tela, a navegação entre páginas e a experiência do usuário (UX), sem focar inicialmente em cores, tipografia ou design visual final. No projeto **Escola360**, o processo de criação do wireframe seguiu uma abordagem baseada em **Design Centrado no Usuário (DCU)**, priorizando as necessidades reais dos diferentes perfis que utilizam a plataforma.
+
+A criação de um wireframe geralmente segue algumas etapas fundamentais:
+
+---
+
+## 1️⃣ Identificação dos Usuários do Sistema
+
+O primeiro passo para a prototipagem é definir **quem interage com o sistema** e quais são suas necessidades.
+
+No **Escola360**, foram identificados quatro perfis distintos de usuários, cada um com demandas específicas:
+
+- **Gestor**  
+  Necessita de uma visão **macroscópica da instituição**, com acesso a indicadores gerais e ferramentas administrativas.
+
+- **Professor**  
+  Possui foco em **operações acadêmicas rápidas**, como lançamento de notas e registro de frequência.
+
+- **Aluno**  
+  Utiliza o sistema principalmente para **consulta de informações acadêmicas**, como boletim, calendário e avisos.
+
+- **Responsável**  
+  Necessita acompanhar o desempenho do aluno, realizando **consulta a boletins, frequência e comunicados da escola**.
+
+A identificação desses perfis é essencial para orientar as decisões de design da interface.
+
+---
+
+## 2️⃣ Definição das Funcionalidades Principais
+
+Após identificar os usuários, é necessário listar as **funcionalidades do sistema**.  
+Essas funcionalidades são utilizadas para construir a estrutura das páginas e a navegação da aplicação.
+
+No projeto **Escola360**, as principais funcionalidades incluem:
+
+- Login e autenticação de usuários
+- Gerenciamento de turmas, disciplinas e usuários
+- Dashboard com indicadores acadêmicos
+- Lançamento de notas
+- Registro de frequência
+- Consulta de boletim escolar (notas e frequências)
+- Comunicação escolar (avisos)
+- Geração de relatórios
+
+---
+
+## 3️⃣ Definição da Estrutura de Navegação
+
+Antes de iniciar o desenho das telas, é importante definir **como o usuário navegará pelo sistema**.
+
+Essa estrutura é representada por um **Sitemap**, que demonstra a hierarquia de páginas e a relação entre elas. Essa etapa é essencial para garantir:
+
+- organização da informação
+- clareza de navegação
+- escalabilidade do sistema
+
+### Exemplo simplificado da navegação no Escola360
+
+```bash
+Login
+ ├── Dashboard Gestor
+ │    ├── Gerenciar Usuários
+ │    ├── Gerenciar Turmas
+ │    ├── Gerenciar Disciplinas
+ │    └── Relatórios
+ │
+ ├── Dashboard Professor
+ │    ├── Minhas Turmas
+ │    ├── Lançar Notas
+ │    ├── Lançar Frequência
+ │    └── Comunicação Escolar
+ │
+ ├── Dashboard Aluno
+ │    ├── Boletim Escolar
+ │    ├── Calendário de Aulas
+ │    └── Mural de Avisos
+ │
+ └── Dashboard Responsável
+      ├── Boletim e Frequência
+      ├── Calendário de Aulas
+      └── Mural de Avisos
+
+```
+---
+
+## 4️⃣ Estruturação da Interface (Desenho das Telas - Wireframe)
+
+Nesta etapa o foco está na **organização dos elementos na tela**, sem preocupação inicial com cores, tipografia ou design visual final.
+
+O wireframe utiliza **caixas, linhas e blocos estruturais** para representar os componentes da interface.
+
+Em geral, um wireframe deve apresentar:
+
+- Estrutura geral da página
+- Menus de navegação
+- Botões principais
+- Campos de formulário
+- Listas e tabelas
+- Indicadores e dashboards
+
+No **Escola360**, algumas decisões de design incluem:
+
+- **Dashboards com indicadores rápidos**
+- **Menu lateral fixo** para navegação entre módulos
+- **Tabelas estruturadas** para lançamento de notas e registro de presença
+- **Mural de avisos** para comunicação entre escola, alunos e responsáveis
+
+Essas decisões ajudam a tornar o sistema **mais organizado, intuitivo e eficiente para os usuários**.
+
+---
+
+## 🛠️ Ferramentas Recomendadas
+
+Diversas ferramentas podem ser utilizadas para criar wireframes e protótipos de interface. Algumas das mais utilizadas são:
+
+- **Figma**
+- **Adobe XD**
+- **Balsamiq**
+- **Draw.io**
+- **Canva**
+- **Miro**
+
+No wireframe do **Escola360**, foi utilizado o **Canva** devido à familiaridade da equipe com a ferramenta.
+
+🔗 https://www.canva.com/pt_br/
+
+---
+
+## ✅ Validação do Wireframe
+
+Após a criação do wireframe, é importante realizar sua **validação com usuários ou stakeholders**.
+
+Nesta etapa são avaliados aspectos como:
+
+- Se a experiência de uso atende às necessidades dos usuários
+- Se os rótulos dos menus são compreensíveis
+- Se a navegação entre telas é intuitiva
+- Se as funcionalidades estão organizadas de forma clara
+
+Realizar validação ainda na fase de **wireframe** permite identificar problemas antes do desenvolvimento do sistema, reduzindo custos e retrabalho da equipe.
+
+---
+
+# 👥 Benefícios do Design Centrado no Usuário (DCU)
+
+O **Design Centrado no Usuário (DCU)** é uma metodologia de desenvolvimento que coloca o usuário final no centro das decisões de design. Isso significa que as interfaces, fluxos de navegação e funcionalidades são projetadas considerando:
+
+- necessidades dos usuários
+- limitações tecnológicas
+- expectativas de uso
+- comportamentos reais das pessoas
+
+Na prototipação do **Escola360**, a adoção do DCU não se restringiu apenas à estética visual, mas atuou como um **pilar fundamental do projeto**.
+
+A aplicação desses princípios contribui diretamente para a melhoria da qualidade dos sistemas, especialmente em aspectos como:
+
+- **Redução de erros humanos**
+- **Melhoria da usabilidade**
+- **Redução da carga cognitiva**
+- **Maior eficiência operacional**
+
+Ao projetar o **Escola360** considerando as necessidades, limitações e contexto de seus usuários, a equipe de desenvolvimento busca entregar **não apenas um código funcional**, mas um sistema capaz de **resolver problemas reais do ambiente educacional**, proporcionando uma experiência digital mais eficiente e acessível.
+
 ------------------------------------------------------------------------
 ## 👨‍💻 Desenvolvedores
 
