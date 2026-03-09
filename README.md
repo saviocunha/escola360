@@ -364,6 +364,14 @@ A aplicação desses princípios contribui diretamente para a melhoria da qualid
 
 Ao projetar o **Escola360** considerando as necessidades, limitações e contexto de seus usuários, a equipe de desenvolvimento busca entregar **não apenas um código funcional**, mas um sistema capaz de **resolver problemas reais do ambiente educacional**, proporcionando uma experiência digital mais eficiente e acessível.
 
+O wireframe e o sitemap do projeto Escola360 podem ser acessados nos links:
+
+- [**Wireframe no Canva**](https://www.canva.com/design/DAHDIPYx7nA/XpXM37A0sk16S8uJbUUmSQ/view?utm_content=DAHDIPYx7nA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2e84121a01)
+
+
+- [**Sitemap no Canva**](https://www.canva.com/design/DAHDY5SmND8/7ZSYfonM0voc1M9omXmlog/view?utm_content=DAHDY5SmND8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5c3b7229cb)
+
+
 ------------------------------------------------------------------------
 ## 👨‍💻 Desenvolvedores
 
