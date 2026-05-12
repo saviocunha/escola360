@@ -375,13 +375,15 @@ O wireframe e o sitemap do projeto Escola360 podem ser acessados nos links:
 ------------------------------------------------------------------------
 ## 👨‍💻 Desenvolvedores
 
-#### 👤 José Eudásio de Monte Viana  | 📧 **Email:** jeviana2020@gmail.com  
+#### 👤 Aldemir Ferreira da Silva Junior  | 📧 **Email:** junior.ferreira@aluno.ufca.edu.br 
 
+#### 👤 Beatriz Benigno de Vasconcelos    | 📧 **Email:** benigno.beatriz@aluno.ufca.edu.br 
 
-#### 👤 Francisco Diogo de Sousa Silva  | 📧 **Email:** sousa.diogo@aluno.ufca.edu.br  
+#### 👤 Francisco Diogo de Sousa Silva    | 📧 **Email:** sousa.diogo@aluno.ufca.edu.br  
 
+#### 👤 Francisco Sávio Sousa da Cunha    | 📧 **Email:** savio.cunha@aluno.ufca.edu.br  
 
-#### 👤 Francisco Sávio Sousa da Cunha  | 📧 **Email:** savio.cunha@aluno.ufca.edu.br  
+#### 👤 João Paulo Lima David             | 📧 **Email:** lima.david@aluno.ufca.edu.br  
 
 
 ------------------------------------------------------------------------
