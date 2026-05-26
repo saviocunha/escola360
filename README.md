@@ -371,6 +371,25 @@ O wireframe e o sitemap do projeto Escola360 podem ser acessados nos links:
 
 - [**Sitemap no Canva**](https://www.canva.com/design/DAHDY5SmND8/7ZSYfonM0voc1M9omXmlog/view?utm_content=DAHDY5SmND8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5c3b7229cb)
 
+##🎨 Protótipo de Alta Fidelidade (Figma)
+
+Após a etapa inicial de prototipação em baixa fidelidade (wireframe), o projeto Escola360 evoluiu para a criação de um protótipo de alta fidelidade, desenvolvido na plataforma Figma.
+
+O protótipo de alta fidelidade tem como objetivo representar de forma mais próxima possível a interface final do sistema, incluindo:
+
+- identidade visual;
+- paleta de cores;
+- tipografia;
+- componentes interativos;
+- organização visual dos elementos;
+- experiência de navegação;
+- responsividade e usabilidade.
+
+Diferente do wireframe, que possui foco estrutural, o protótipo de alta fidelidade permite visualizar o comportamento real da aplicação, simulando a interação do usuário com o sistema.
+
+O protótipo de alta fidelidade do Escola360 pode ser acessado no link abaixo:
+
+[**Protótipo no Figma**](https://www.figma.com/site/Emqrc76z13FP6LB8lXMvCq/Escola360?node-id=0-1&t=YLUsID5bcvFmgdKQ-1)
 
 ------------------------------------------------------------------------
 ## 👨‍💻 Desenvolvedores
