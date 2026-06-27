@@ -390,6 +390,46 @@ Diferente do wireframe, que possui foco estrutural, o protótipo de alta fidelid
 O protótipo de alta fidelidade do Escola360 pode ser acessado no link abaixo:
 
 [**Protótipo no Figma**](https://www.figma.com/site/Emqrc76z13FP6LB8lXMvCq/Escola360?node-id=0-1&t=YLUsID5bcvFmgdKQ-1)
+------------------------------------------------------------------------
+
+# 📐 Sobre Arquitetura de Software
+
+## O que é Arquitetura de Software?
+
+A arquitetura de software pode ser compreendida como a **espinha dorsal** que estrutura um sistema. Ela define não apenas seus componentes, mas também as relações entre eles e os princípios que governam sua evolução.
+
+Uma analogia útil é pensar que, assim como um edifício precisa de um projeto estrutural, um sistema de software necessita de um planejamento arquitetônico para garantir seu funcionamento adequado e eficiente no mundo real.
+
+## Por que a Arquitetura de Software é importante?
+
+A decisão de investir na arquitetura antes do desenvolvimento é essencial para qualquer projeto de software.
+
+Em primeiro lugar, a arquitetura permite a **modularização do sistema**, dividindo-o em partes colaborativas. Isso possibilita o desenvolvimento paralelo entre equipes e reduz a sobrecarga cognitiva dos desenvolvedores.
+
+Além disso, a arquitetura atua como um importante **artefato de comunicação** entre arquitetos, desenvolvedores, gerentes e clientes, oferecendo uma visão compartilhada do sistema, alinhando expectativas e orientando decisões técnicas e de negócio.
+
+Outro papel fundamental da arquitetura é estabelecer as **restrições e possibilidades** do desenvolvimento. Ainda antes da implementação, as decisões arquiteturais determinam:
+
+- As tecnologias que poderão ser utilizadas;
+- Como ocorrerá o fluxo de dados entre os componentes;
+- Quais trade-offs serão aceitos, como o equilíbrio entre desempenho, escalabilidade e complexidade.
+
+## Influência nos atributos de qualidade
+
+Um dos aspectos mais relevantes da arquitetura é sua influência direta sobre os **atributos de qualidade**, responsáveis por definir **como** o sistema se comporta.
+
+- Escalabilidade: A forma como o sistema é particionado determina sua capacidade de crescimento. Decisões como a adoção de microsserviços ou arquiteturas multicamadas permitem que a aplicação escale de maneira mais eficiente.
+- Segurança: Uma arquitetura robusta reduz vulnerabilidades ao estabelecer fronteiras de confiança entre os componentes. O isolamento de dados sensíveis e a limitação das interações diminuem significativamente a superfície de ataque.
+- Desempenho: O arranjo dos componentes e os fluxos de comunicação impactam diretamente o desempenho do sistema. Decisões inadequadas podem transformar operações simples em processos lentos e custosos.
+- Manutenibilidade: A manutenção é um dos atributos mais fortemente relacionados à arquitetura. Em um sistema bem projetado, alterações em uma regra de negócio não exigem modificações extensas em outros módulos, pois as dependências são controladas e as interfaces permanecem bem definidas.
+- Evolução do sistema: Todo software evolui ao longo do tempo. Uma boa arquitetura protege as regras de negócio das mudanças tecnológicas, permitindo incorporar novas tecnologias sem a necessidade de reescrever todo o sistema.
+
+
+Em suma, a qualidade de um projeto de software está diretamente relacionada à qualidade de sua arquitetura.
+
+É a arquitetura que determina se o software terá uma vida útil longa, sustentável e de sucesso ou se se tornará um sistema legado de difícil manutenção e evolução.
+
+Mais do que uma etapa do desenvolvimento, a arquitetura é o principal instrumento para gerenciar a complexidade inerente aos sistemas modernos e garantir que o software funcione de forma eficiente diante das demandas do mundo real.
 
 ------------------------------------------------------------------------
 ## 👨‍💻 Desenvolvedores
