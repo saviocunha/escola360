@@ -271,7 +271,7 @@ A arquitetura de software pode ser compreendida como a espinha dorsal que estrut
  
 ### Por que a Arquitetura é Importante?
  
-A arquitetura permite a **modularização do sistema**, dividindo-o em partes colaborativas — o que possibilita o desenvolvimento paralelo entre equipes e reduz a sobrecarga cognitiva dos desenvolvedores. Ela também atua como um **artefato de comunicação** entre arquitetos, desenvolvedores, gerentes e clientes, alinhando expectativas e orientando decisões técnicas e de negócio.
+A arquitetura permite a **modularização do sistema**, dividindo-o em partes colaborativas, o que possibilita o desenvolvimento paralelo entre equipes e reduz a sobrecarga cognitiva dos desenvolvedores. Ela também atua como um **artefato de comunicação** entre arquitetos, desenvolvedores, gerentes e clientes, alinhando expectativas e orientando decisões técnicas e de negócio.
  
 Além disso, as decisões arquiteturais determinam, ainda antes da implementação, as tecnologias que poderão ser utilizadas, como ocorrerá o fluxo de dados entre os componentes e quais trade-offs serão aceitos — como o equilíbrio entre desempenho, escalabilidade e complexidade.
  
