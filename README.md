@@ -2,8 +2,20 @@
 
 O Escola360 é uma aplicação de gestão escolar que modela o ecossistema de uma instituição de ensino. Desenvolvido com foco em boas práticas de programação, extensibilidade e manutenibilidade, o sistema oferece uma base sólida para o gerenciamento acadêmico.
 
-> **Aviso:** O sistema está na fase inicial de desenvolvimento. Nesta etapa foi implementado apenas o núcleo do backend.
+> **Aviso:** O sistema ainda está fase de desenvolvimento.
 
+---
+
+## Sobre a plataforma Escola360
+
+Visto que, na maior parte das escolas públicas de educação básica, principalmente no interior, o acompanhamento da vida escolar do aluno ainda depende de registros em papel e planilhas isoladas. Ademais, as notas ficam com o professor, a frequência fica na secretaria e os avisos chegam à família por bilhete no caderno. 
+
+Percebemos o quanto a comunicação é fragmentada,  o responsável só descobre que o filho está com notas baixas ou faltando na reunião de fim de bimestre, quando já é tarde para intervir. Do outro lado, o gestor não tem indicadores consolidados para agir sobre evasão e baixo rendimento, e o professor perde horas em tarefas administrativas repetitivas.
+
+Dessa forma, resolvemos centralizar as informações acadêmicas dos alunos e criar um canal de comunicação direto entre a escola, os professores, os alunos e os responsáveis. O sistema reúne em um único lugar: notas, frequência, calendário e avisos, com uma visão diferente para cada perfil, de modo que a informação certa chegue à pessoa certa em tempo real.
+
+
+Acesse o site: 
 ---
 
 ## Características Principais
@@ -15,8 +27,26 @@ O Escola360 é uma aplicação de gestão escolar que modela o ecossistema de um
 - Arquitetura modular e extensível
 
 ---
+## Possíveis Usos do Escola360
 
-## Visão Geral do Projeto
+Embora seja um projeto de fins didáticos, o Escola360 já representa um núcleo que pode ser expandido em várias direções:
+
+**1. Backend de um sistema escolar web ou mobile:**
+Servir como camada de domínio em uma API (Flask, FastAPI ou Django), expondo endpoints para cadastro de usuários e disciplinas, lançamento de notas, registro de frequência e geração de relatórios.
+
+**2. Ferramenta de acompanhamento pedagógico:**
+Permitir que professores e gestores registrem avaliações e presenças em tempo real, gerem relatórios por aluno, turma ou disciplina, e exportem dados em CSV/JSON.
+
+**3. Portal de pais e alunos:**
+Alimentar um portal onde responsáveis e alunos acessam informações em tempo real — notificações de ocorrências, agendamento de reuniões e acompanhamento de atividades escolares.
+
+**4. Integração com ERPs escolares:**
+Atuar como módulo de "vida acadêmica" (notas, frequências, boletins) e fonte de dados para dashboards de desempenho e evasão escolar.
+---
+
+
+
+## Visão Geral do Projeto (Backend)
 
 O projeto está organizado em módulos, cada um representando uma parte do domínio:
 
@@ -86,24 +116,6 @@ Notas limitadas entre 0 e 10, status de frequência restrito a `"P"` ou `"F"`, e
 
 **Consistência do modelo**
 Ao lançar uma nota ou registrar uma frequência, o código atualiza simultaneamente as listas do `Professor`, do `Aluno` e da `Disciplina`, garantindo que todos os lados do relacionamento se mantenham sincronizados.
-
----
-
-## Possíveis Usos do Escola360
-
-Embora seja um projeto de fins didáticos, o Escola360 já representa um núcleo que pode ser expandido em várias direções:
-
-**1. Backend de um sistema escolar web ou mobile:**
-Servir como camada de domínio em uma API (Flask, FastAPI ou Django), expondo endpoints para cadastro de usuários e disciplinas, lançamento de notas, registro de frequência e geração de relatórios.
-
-**2. Ferramenta de acompanhamento pedagógico:**
-Permitir que professores e gestores registrem avaliações e presenças em tempo real, gerem relatórios por aluno, turma ou disciplina, e exportem dados em CSV/JSON.
-
-**3. Portal de pais e alunos:**
-Alimentar um portal onde responsáveis e alunos acessam informações em tempo real — notificações de ocorrências, agendamento de reuniões e acompanhamento de atividades escolares.
-
-**4. Integração com ERPs escolares:**
-Atuar como módulo de "vida acadêmica" (notas, frequências, boletins) e fonte de dados para dashboards de desempenho e evasão escolar.
 
 ---
 
@@ -227,22 +239,13 @@ Em geral, um wireframe deve apresentar:
 
 Essas decisões ajudam a tornar o sistema **mais organizado, intuitivo e eficiente para os usuários**.
 
-### Ferramentas Recomendadas para Wireframe
-
-Figma, Adobe XD, Balsamiq, Draw.io, Canva, Miro.
-
-### Validação do Wireframe
-
-Após a criação, o wireframe deve ser validado com usuários ou stakeholders, avaliando se a navegação é intuitiva, se os rótulos dos menus são compreensíveis e se as funcionalidades estão organizadas de forma clara. Identificar problemas ainda nessa fase reduz custos e retrabalho no desenvolvimento.
-
 ### Design Centrado no Usuário (DCU)
 
-O DCU é uma metodologia que coloca o usuário final no centro das decisões de design, considerando suas necessidades, limitações e comportamentos reais. No Escola360, esses princípios contribuíram para a redução de erros humanos, melhoria da usabilidade, redução da carga cognitiva e maior eficiência operacional com o objetivo de entregar não apenas código funcional, mas um sistema capaz de resolver problemas reais do ambiente educacional, proporcionando uma experiência digital mais eficiente e acessível.
-
-Os protótipos podem ser acessados nos links abaixo:
-
-- [Wireframe no Canva](https://www.canva.com/design/DAHDIPYx7nA/XpXM37A0sk16S8uJbUUmSQ/view?utm_content=DAHDIPYx7nA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2e84121a01)
-- [Sitemap no Canva](https://www.canva.com/design/DAHDY5SmND8/7ZSYfonM0voc1M9omXmlog/view?utm_content=DAHDY5SmND8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5c3b7229cb)
+O DCU é uma metodologia que coloca o usuário final no centro das decisões de design, considerando suas necessidades, limitações e comportamentos reais. 
+No Escola360, esses princípios contribuíram para a redução de erros humanos, melhoria da usabilidade, redução da carga cognitiva e maior eficiência operacional com o objetivo de entregar não apenas código funcional, mas um sistema capaz de resolver problemas reais do ambiente educacional, proporcionando uma experiência digital mais eficiente e acessível.
+Esse entendimento guiou decisões concretas como a escolha das cores, a organização das informações mais importantes na primeira tela, a simplicidade dos ícones e a clareza das notificações. 
+O objetivo é reduzir a carga cognitiva e os erros
+humanos, tornando a tecnologia acessível justamente para quem mais precisa dela.
 
 ## Importância da Experiência do Usuário (UX)
 
@@ -258,23 +261,27 @@ No desenvolvimento do nosso projeto, a preocupação com o UX guiou decisões pr
  
 E ainda mais importante, o UX tem que ser pensado no quesito de inclusão. Um design bem planejado torna a tecnologia acessível para quem mais precisa dela e é esse compromisso que orienta o desenvolvimento do Escola360.
 
+
 ### Protótipo de Alta Fidelidade (Figma)
  
 Após a etapa de wireframe, o projeto Escola360 evoluiu para um protótipo de alta fidelidade, desenvolvido no Figma. Diferente do wireframe, que tem foco estrutural, o protótipo de alta fidelidade representa a interface de forma mais próxima ao produto final, incluindo identidade visual, paleta de cores, tipografia, componentes interativos, organização visual dos elementos, experiência de navegação, responsividade e usabilidade.
  
 - [Protótipo no Figma](https://www.figma.com/site/Emqrc76z13FP6LB8lXMvCq/Escola360?node-id=0-1&t=YLUsID5bcvFmgdKQ-1)
+
 ---
  
 ## Arquitetura de Software
  
 A arquitetura de software pode ser compreendida como a espinha dorsal que estrutura um sistema. Ela define não apenas seus componentes, mas também as relações entre eles e os princípios que governam sua evolução. Assim como um edifício precisa de um projeto estrutural, um sistema de software necessita de um planejamento arquitetônico para garantir seu funcionamento adequado e eficiente.
  
+
 ### Por que a Arquitetura é Importante?
  
 A arquitetura permite a **modularização do sistema**, dividindo-o em partes colaborativas, o que possibilita o desenvolvimento paralelo entre equipes e reduz a sobrecarga cognitiva dos desenvolvedores. Ela também atua como um **artefato de comunicação** entre arquitetos, desenvolvedores, gerentes e clientes, alinhando expectativas e orientando decisões técnicas e de negócio.
  
 Além disso, as decisões arquiteturais determinam, ainda antes da implementação, as tecnologias que poderão ser utilizadas, como ocorrerá o fluxo de dados entre os componentes e quais trade-offs serão aceitos — como o equilíbrio entre desempenho, escalabilidade e complexidade.
  
+
 ### Influência nos Atributos de Qualidade
  
 Um dos aspectos mais relevantes da arquitetura é sua influência direta sobre os atributos de qualidade, que definem **como** o sistema se comporta:
@@ -290,7 +297,41 @@ Um dos aspectos mais relevantes da arquitetura é sua influência direta sobre o
 Concluindo, a qualidade de um projeto de software está diretamente relacionada à qualidade de sua arquitetura. É ela que determina se o software terá uma vida útil longa e sustentável ou então, se tornará um sistema legado de difícil manutenção. 
 
  - [Clique aqui para visualisar o projeto arquitetural do Escola360.](https://github.com/saviocunha/escola360/blob/main/Projeto_Arquitetural_Escola360.md)
+
 ---
+
+## Visao Geral da Interface
+
+O Escola360 é organizado em quatro perfis de acesso, cada um com sua própria
+visão do sistema, sobre uma base comum de gestão de usuários, turmas,
+disciplinas, notas e frequência.
+
+### Funcionalidades implementadas
+
+- Landing page de apresentacão com chamada para o sistema.
+- Páginas institucionais: Sobre nós, Funcionalidades e Suporte.
+- Tela de login com campos de e-mail e senha, opcão "Lembrar-me" e link de
+  recuperação de senha
+- Estrutura base do dashboard, preparada para receber os módulos por perfil
+- Layout responsivo para celular, com menu hamburguer implementado apenas em CSS
+- Identidade visual aplicada: paleta de cores, tipografia, logo e favicon.
+
+### Funcionalidades previstas
+
+- Autenticação real e controle de acesso por perfil
+- Dashboards de gestor, professor, aluno e responsável
+- Lançamento de notas e registro de frequÊncia pela interface
+- Boletim escolar e mural de avisos
+- Geração de relatórios
+- Integração entre a interface web e o banco de dados
+ 
+ ---
+
+ ## Interface Web Implementada
+
+- Landing Page 
+
+
 
 ## Desenvolvedores
 
