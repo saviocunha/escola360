@@ -365,9 +365,9 @@ disciplinas, notas e frequência.
 | Integrante | Frente de trabalho |
 |---|---|
 | Francisco Savio | Home Page, arquitetura de pastas, relatórios |
-| Beatriz Benigno | Página de Funcionalidades , identidade visual, menu hambúrguer responsivo |
-| Diogo Sousa | Tela de login completa (campos, botão, "Lembrar-me", recuperação de senha) e correções de responsividade |
-| Junior Ferreira | Pagina "Sobre nós" |
+| Beatriz Benigno | Página de Funcionalidades , identidade visual, menu hambúrguer responsivo, relatórios |
+| Diogo Sousa | Tela de login completa (campos, botão, "Lembrar-me", recuperação de senha) correções de responsividade, relatórios |
+| Junior Ferreira | Página "Sobre nós", relatórios |
 
 ### Uso do GitHub e estratégia de versionamento
 
