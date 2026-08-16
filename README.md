@@ -388,14 +388,15 @@ foram resolvidas por merge, sem perda de trabalho.
 ### Dificuldades encontradas e soluções adotadas
 
 **Organização inicial dos arquivos.** Os primeiros arquivos foram criados
-soltos na raiz do repositório. Conforme o numero de paginas cresceu, ficou
+soltos na raiz do repositório. Conforme o número de páginas cresceu, ficou
 claro que a navegação não escalaria, e a equipe reorganizou tudo nos
-diretórios `css/`, `img/`, `js/` e `paginas/`, corrigindo todas as referencias.
+diretórios `css/`, `img/`, `js/` e `paginas/`, corrigindo todas as referências.
 
-**Caminhos absolutos quebravam o site fora da raiz.** As paginas usavam
-caminhos absolutos, o que funcionava na maquina de quem escreveu mas quebrava
-imagens e estilos ao abrir o site de uma subpasta ou publica-lo no GitHub
-Pages. A solução foi converter todas as referencias para caminhos relativos.
+**Caminhos absolutos quebravam o site fora da raiz.** As páginas usavam
+caminhos absolutos. Pois, funcionava na máquina de quem escreveu, mas quebrava
+imagens e estilos ao abrir o site de uma subpasta ou publicá-lo no GitHub
+Pages. A solução foi converter todas as referências para caminhos relativos 
+(usamos o cursor para resolver esse problema por nós, pois era apenas para substituir).
 
 **Menu de navegação no celular.** O cabeçalho não cabia em telas pequenas e a
 equipe ainda não havia estudado JavaScript. A solução foi implementar o menu
@@ -407,7 +408,6 @@ dependência de script.
 achar e alterar uma regra virou um gargalo. Foram adicionados comentários
 delimitando cada bloco e criado um glossário das propriedades usadas, que
 serviu também como material de estudo para a equipe.
-
 
 
 ## Desenvolvedores
