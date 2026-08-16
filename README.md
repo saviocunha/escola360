@@ -336,8 +336,8 @@ disciplinas, notas e frequência.
 
 | Tecnologia | Uso no projeto | Por que foi escolhida |
 |---|---|---|
-| **HTML5** | Estrutura das seis paginas do site | Marcação semântica (`header`, `nav`, `main`, `section`, `article`, `footer`), que melhora acessibilidade e SEO |
-| **CSS3** | Toda a estilização, em um único `style.css` | Flexbox e media queries dão conta da responsividade sem dependências externas |
+| **HTML** | Estrutura das seis paginas do site | Marcação semântica (`header`, `nav`, `main`, `section`, `article`, `footer`), que melhora acessibilidade e SEO |
+| **CSS** | Toda a estilização, em um único `style.css` | Flexbox e media queries dão conta da responsividade sem dependências externas |
 | **JavaScript** | Diretório reservado para as próximas etapas | O menu hamburguer foi resolvido apenas com CSS, então nenhum script foi necessário no MVP |
 | **Google Fonts (DM Sans)** | Tipografia da interface | Fonte sem serifa de alta legibilidade em telas pequenas, ponto critico para o acesso via celular |
 
