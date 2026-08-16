@@ -392,8 +392,8 @@ soltos na raiz do repositório. Conforme o número de páginas cresceu, ficou
 claro que a navegação não escalaria, e a equipe reorganizou tudo nos
 diretórios `css/`, `img/`, `js/` e `paginas/`, corrigindo todas as referências.
 
-**Caminhos absolutos quebravam o site fora da raiz.** As páginas usavam
-caminhos absolutos. Pois, funcionava na máquina de quem escreveu, mas quebrava
+**Caminhos absolutos quebravam o site fora da raiz,** as páginas usavam
+caminhos absolutos. De forma que, funcionava na máquina de quem escreveu, mas quebrava
 imagens e estilos ao abrir o site de uma subpasta ou publicá-lo no GitHub
 Pages. A solução foi converter todas as referências para caminhos relativos 
 (usamos o cursor para resolver esse problema por nós, pois era apenas para substituir).
