@@ -326,7 +326,6 @@ disciplinas, notas e frequência.
  ## Interface Web Implementada (prints)
 
 - Página Inicial
-![inicial](inicial.png)
 - Login
 - Funcionalidades
 - Sobre Nós
