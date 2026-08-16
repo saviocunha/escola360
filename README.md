@@ -1,4 +1,3 @@
-<img width="1253" height="626" alt="Captura de tela 2026-08-15 233729" src="https://github.com/user-attachments/assets/6ef31bdc-d138-4a91-9192-e97251028deb" />
 # Escola360 — Dashboard de Acompanhamento Escolar
 
 O Escola360 é uma aplicação de gestão escolar que modela o ecossistema de uma instituição de ensino. Desenvolvido com foco em boas práticas de programação, extensibilidade e manutenibilidade, o sistema oferece uma base sólida para o gerenciamento acadêmico.
