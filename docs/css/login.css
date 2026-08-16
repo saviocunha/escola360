@@ -1,0 +1,67 @@
+/* ==========================================================================
+   LOGIN.CSS — Tela de login
+   --------------------------------------------------------------------------
+   Centraliza o card branco com os campos de e-mail e senha. Os campos
+   (campo-input, grupo-campo) também são reutilizados no formulário da
+   página de Suporte.
+   ========================================================================== */
+
+/* Área da página de login: centra o card na vertical e horizontal. */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; 
+    padding: 20px;
+}
+
+/* O "cartão" branco onde fica o formulário. */
+.login-card {
+    background-color: white;
+    padding: 30px;
+    padding-top: 50px;
+    border-radius: 10px; 
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão de enviar o login (azul escuro, centralizado). */
+.entrar button{  
+  display: block;     
+  background-color: #16305c;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: medium;
+  color: #ffffff;
+  border: #ffffff;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+/* Linha com o link "Esqueceu a senha?" e opções ao lado. */
+.esqueceu-senha {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+/* Campos de texto (e-mail, senha): ocupam 100% da largura. */
+.campo-input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  margin-top: 5px;
+}
+
+/* Agrupa o rótulo (label) + o input em uma coluna. */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,62 @@
+/* ==========================================================================
+   PAGES.CSS — Páginas institucionais
+   --------------------------------------------------------------------------
+   Estilos das páginas "Sobre Nós" (imagem de destaque + título + texto)
+   e "Suporte" (título + formulário de contato em card branco).
+   ========================================================================== */
+
+/* Banner/imagem no topo da página Sobre. */
+.image-sobre-nos {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* corta a imagem sem deformar */
+}
+
+.titulo-sobre-nos {
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.texto-sobre-nos {
+    color: white;
+    text-align: justify;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Seção da página Sobre: largura máxima e centralizada. */
+.sobre-nos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* Cards da página Sobre Nós: centralizados e com largura limitada
+   (mesmo padrão da seção de funcionalidades da página inicial). */
+main .cards {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem) 2rem;
+}
+
+/* Seção da página Suporte: título centralizado e largura máxima. */
+.suporte {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+}
+
+/* Área de mensagem do formulário: mesmo visual do campo de texto,
+   porém com altura maior para caber o texto. */
+.campo-textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 5px;
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    resize: vertical;
+}

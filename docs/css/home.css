@@ -1,0 +1,126 @@
+/* ==========================================================================
+   HOME.CSS — Página inicial e funcionalidades
+   --------------------------------------------------------------------------
+   Botão "Entrar no Sistema", bloco de boas-vindas da home, seção de
+   funcionalidades e os cards brancos de destaque.
+   ========================================================================== */
+
+/* Botão "Entrar no Sistema" (fundo branco sobre o azul escuro). */
+.botao {
+  display: inline-block;
+  background-color: white;
+  color: #16305c;
+  text-decoration: none;
+  padding: clamp(0.6rem, 2vw, 0.7rem) clamp(1.2rem, 3vw, 1.6rem);
+  border-radius: 6px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.2s ease;
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+.botao:hover {
+  background-color: white;
+  border-color: white;
+  transform: translateY(-2px); /* sobe 2px no hover */
+}
+
+/* Contorno quando o botão recebe foco (teclado/acessibilidade). */
+.botao:focus {
+  outline: 2px solid #16305c;
+  outline-offset: 2px;
+}
+
+/* Container da seção de funcionalidades, centralizado. */
+.funcionalidades {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem);
+}
+
+/* Bloco de boas-vindas (título + parágrafo) no centro. */
+.home {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Título grande da home, em branco. */
+.home h1 {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  font-weight: bold;
+  font-family: 'DM Sans', sans-serif;
+  color: white;
+}
+
+/* Texto de apoio abaixo do título. */
+.home p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  color: white;
+  line-height: 1.7;
+}
+
+/* Rótulo pequeno acima de um título (no caso, o nome "FUNCIONALIDADES"). */
+.rotulo {
+  color:  #cbdbf0;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Título da seção de funcionalidades. */
+.funcionalidades h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+  font-weight: bold;
+  color: white;
+}
+
+/* Frase curta abaixo do h2. */
+.subtitulo {
+  color: #cbdbfc;
+  margin-bottom: 3rem;
+  font-size: clamp(0.95rem, 2vw, 1rem);
+}
+
+/* Cards: caixinhas brancas que mostram cada funcionalidade.
+   No desktop ficam lado a lado; no celular empilham. */
+.cards {
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  flex-wrap: wrap; /* se não couber, quebra para a linha de baixo */
+}
+
+.card {
+  flex: 1;
+  background-color: #fff;
+  min-width: 260px; /* não fica estreito demais */
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  padding: clamp(1rem, 3vw, 1.2rem);
+  transition: all 0.3s ease;
+}
+
+/* Ao passar o mouse, o card sobe e ganha sombra. */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  margin: clamp(0.8rem, 2vw, 1rem) 0 0.5rem;
+  font-weight: bold;
+  color: rgb(3, 3, 90);
+}
+
+.card p {
+  color: #667085;
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
+  line-height: 1.6;
+}

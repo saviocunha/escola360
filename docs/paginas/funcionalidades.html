@@ -5,28 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <title>Escola360</title>
+    <title>Funcionalidades - Escola360</title>
 </head>
 
 <body>
     
     <header class="cabecalho">
         <div class="logo">
-            <a href="#" class="logo-group">
-              <img src="../img/favicon.png" alt="Logo da Escola360" class="logo-imagem">
-            </a>
-             <a href="../index.html">Escola360</a>
+            <img src="../img/favicon.png" alt="Logo da Escola360">
+            <a href="../index.html">Escola360</a>
         </div>
-        
-        <ul class="cabecalho-nav">
-            <li><a href="#sobre_nos">Sobre nós</a></li>
-            <li><a href="#funcionalidades">Funcionalidades</a></li>
-            <li><a href="suporte.html">Suporte</a></li>
-        </ul>
 
+        <input type="checkbox" id="menu-check" class="menu-check">
+
+        <label for="menu-check" class="menu-toggle" aria-label="Abrir menu">☰</label>
+
+        <nav>
+            <ul class="cabecalho-nav" id="nav-menu">
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </nav>
     </header>
-    
+
+  <main>
   <section class="funcionalidades">
 
     <p class="rotulo"> FUNCIONALIDADES</p>
@@ -36,19 +43,16 @@
     <div class="cards">
 
       <div class="card">
-        <div class="thumb verde"></div>
         <h3>Boletim Digital</h3>
         <p>Acompanhe as notas e o desempenho dos alunos em tempo real, com histórico completo por disciplina.</p>
       </div>
 
       <div class="card">
-        <div class="thumb azul"></div>
         <h3>Frequência e Horários</h3>
         <p>Registro de presença automatizado e grade horária integrada para professores e coordenadores.</p>
       </div>
 
       <div class="card">
-        <div class="thumb laranja"></div>
         <h3>Comunicados e Avisos</h3>
         <p>Envie comunicados para pais e responsáveis diretamente pela plataforma, com confirmação de leitura.</p>
       </div>
@@ -56,6 +60,7 @@
     </div>
 
   </section>
+  </main>
 
   <footer class = "rodape">
     <p>&copy; 2026 Escola360 - Todos os direitos reservados.</p>

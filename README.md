@@ -326,9 +326,17 @@ disciplinas, notas e frequência.
  ## Interface Web Implementada (prints)
 
 - Página Inicial
+  
+<img width="1253" height="626" alt="Captura de tela 2026-08-15 233729" src="https://github.com/user-attachments/assets/2563391e-7b75-4e21-bdf3-477b9f52caff" />
+
 - Login
+
+  <img width="1366" height="768" alt="Captura de tela 2026-08-15 233751" src="https://github.com/user-attachments/assets/7d29ebe3-c8d5-4ca5-8b58-495ef0886371" />
+
 - Funcionalidades
-- Sobre Nós
+
+  <img width="1366" height="768" alt="Captura de tela 2026-08-15 233906" src="https://github.com/user-attachments/assets/05180dc9-eabc-4cac-a2e8-e71883ad28c3" />
+
 
 ## Tecnologias Utilizadas
 
