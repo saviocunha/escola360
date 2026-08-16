@@ -1,0 +1,51 @@
+/* ==========================================================================
+   BASE.CSS — Configurações gerais das páginas
+   --------------------------------------------------------------------------
+   Regras que valem para o site inteiro: reset global, corpo da página,
+   conteúdo principal e rodapé.
+   ========================================================================== */
+
+/* O * significa "todos os elementos".
+   Aqui zeramos margem e padding padrão do navegador,
+   fazemos o tamanho contar a borda (box-sizing) e
+   aplicamos a fonte DM Sans em tudo. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+/* Corpo da página: fundo azul, layout em coluna
+   e altura mínima da tela inteira (para o rodapé ir para baixo). */
+body {
+  background-color: #003f69;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* O main cresce e ocupa o espaço sobrando entre
+   o cabeçalho e o rodapé. */
+main {
+  flex: 1;
+}
+
+/* Imagens nunca estouram a largura do container
+   e mantêm a proporção correta. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Rodapé: fundo branco, texto centralizado, padding e fonte responsivos. */
+footer {
+  background-color: white;
+  color: rgb(3, 3, 90);
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  border-top: 1px solid rgba(235, 228, 228, 0.877);
+  margin-top: auto;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}

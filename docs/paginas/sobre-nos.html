@@ -5,56 +5,91 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <title>Escola360</title>
+        <title>Sobre Nós - Escola360</title>
     </head>
 
     <body>
         
         <header class="cabecalho">
-
             <div class="logo">
-
                 <img src="../img/favicon.png" alt="Logo da Escola360">
-                <span><a href="../index.html">Escola360</a></span>
-
+                <a href="../index.html">Escola360</a>
             </div>
-            
+
+            <input type="checkbox" id="menu-check" class="menu-check">
+
+            <label for="menu-check" class="menu-toggle" aria-label="Abrir menu">☰</label>
+
             <nav>
-                <ul class="cabecalho-nav">
+                <ul class="cabecalho-nav" id="nav-menu">
                     <li><a href="sobre-nos.html">Sobre nós</a></li>
                     <li><a href="funcionalidades.html">Funcionalidades</a></li>
                     <li><a href="suporte.html">Suporte</a></li>
                 </ul>
             </nav>
-
         </header>
         
         <main>
             <img class="image-sobre-nos" src="../img/livros.jpg" alt="Livros da biblioteca">
-            <section>
+
+            <section class="sobre-nos">
                 <h2 class="titulo-sobre-nos">Sobre Nós</h2>
-            
-                
+
                 <article>
-                    <p class="texto-sobre-nos">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Rerum cupiditate expedita saepe, esse ducimus ullam, 
-                    culpa dolore fugit cumque aliquid excepturi earum quo officia unde 
-                    voluptatum? A inventore maxime totam! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Rerum cupiditate expedita saepe, esse ducimus ullam, 
-                    culpa dolore fugit cumque aliquid excepturi earum quo officia unde 
-                    voluptatum? A inventore maxime totam Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Rerum cupiditate expedita saepe, esse ducimus ullam, 
-                    culpa dolore fugit cumque aliquid excepturi earum quo officia unde 
-                    voluptatum? A inventore maxime totam A inventore maxime totam Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Rerum cupiditate expedita saepe, esse ducimus ullam, 
-                    culpa dolore fugit cumque aliquid excepturi earum quo officia unde 
-                    voluptatum? A inventore maxime totam A inventore maxime totam Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Rerum cupiditate expedita saepe, esse ducimus ullam, 
-                    culpa dolore fugit cumque aliquid excepturi earum quo officia unde 
-                    voluptatum? A inventore maxime totam</p>
+                    <p class="texto-sobre-nos">
+                        O <strong>Escola360</strong> é uma plataforma de gestão escolar criada para
+                        aproximar escola, professores, alunos e responsáveis em um só lugar.
+                        Na maioria das escolas públicas de educação básica, principalmente no interior,
+                        o acompanhamento da vida escolar ainda depende de registros em papel e planilhas
+                        isoladas: as notas ficam com o professor, a frequência na secretaria e os avisos
+                        chegam à família por bilhete no caderno.
+                    </p>
+                    <p class="texto-sobre-nos">
+                        Essa comunicação fragmentada faz o responsável descobrir que o filho está com
+                        notas baixas ou faltando só na reunião de fim de bimestre, quando já é tarde para
+                        intervir. O gestor, por sua vez, não tem indicadores consolidados para agir sobre
+                        a evasão e o baixo rendimento, e o professor perde horas em tarefas administrativas
+                        repetitivas.
+                    </p>
+                    <p class="texto-sobre-nos">
+                        Para resolver esse problema, o Escola360 centraliza as informações acadêmicas e
+                        cria um canal de comunicação direto entre todos os envolvidos. O sistema reúne em
+                        um único lugar: <strong>notas, frequência, calendário e avisos</strong>, com uma
+                        visão diferente para cada perfil, de modo que a informação certa chegue à pessoa
+                        certa em tempo real.
+                    </p>
                 </article>
-            </section>    
+            </section>
+
+             <div class="cards">
+                    <article class="card">
+                        <h3>Missão</h3>
+                        <p>
+                            Facilitar o dia a dia de escolas e famílias com tecnologia
+                            simples, acessível e segura para todos os perfis.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Visão</h3>
+                        <p>
+                            Ser a plataforma de gestão escolar mais confiável do país,
+                            presente em cada etapa do aprendizado.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Valores</h3>
+                        <p>
+                            Transparência, segurança dos dados, inovação e compromisso
+                            com a educação de qualidade.
+                        </p>
+                    </article>
+            </div>
         </main>
 
         <footer class = "rodape">

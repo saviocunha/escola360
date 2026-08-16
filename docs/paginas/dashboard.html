@@ -6,31 +6,153 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <title>Dashboard</title>
+        <title>Dashboard - Escola360</title>
     </head>
 
     <body>
         
         <header class="cabecalho">
-
             <div class="logo">
-
                 <img src="../img/favicon.png" alt="Logo da Escola360">
-                <span><a href="../index.html">Escola360</a></span>
-
+                <a href="../index.html">Escola360</a>
             </div>
-            
-            <ul class="cabecalho-nav">
-                <li><a href="sobre-nos.html">Sobre nós</a></li>
-                <li><a href="funcionalidades.html">Funcionalidades</a></li>
-                <li><a href="suporte.html">Suporte</a></li>
-            </ul>
 
+            <div class="usuario-area">
+                <div class="avatar" aria-hidden="true">D</div>
+                <p class="saudacao">Olá, Diretor(a)!</p>
+            </div>
         </header>
         
-        <main>
-          
+        <main class="dashboard">
+
+            <aside class="painel-lateral">
+                <nav>
+                    <ul class="painel-nav">
+                        <li class="ativo"><a href="dashboard.html">Início</a></li>
+                        <li><a href="#">Boletim</a></li>
+                        <li><a href="#">Frequência</a></li>
+                        <li><a href="#">Turmas</a></li>
+                        <li><a href="#">Comunicados</a></li>
+                        <li><a href="#">Configurações</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="painel-sair">Sair</a>
+            </aside>
+
+            <section class="painel-conteudo" id="inicio">
+
+                <div class="boas-vindas">
+                    <h1>Olá, Diretor(a)!</h1>
+                    <p>Veja o resumo da sua escola neste mês.</p>
+                </div>
+
+                <div class="stats">
+                    <article class="stat stat-azul">
+                        <span class="stat-num">482</span>
+                        <span class="stat-rotulo">Alunos matriculados</span>
+                    </article>
+                    <article class="stat stat-verde">
+                        <span class="stat-num">38</span>
+                        <span class="stat-rotulo">Professores</span>
+                    </article>
+                    <article class="stat stat-laranja">
+                        <span class="stat-num">24</span>
+                        <span class="stat-rotulo">Turmas ativas</span>
+                    </article>
+                    <article class="stat stat-roxo">
+                        <span class="stat-num">92%</span>
+                        <span class="stat-rotulo">Aprovação</span>
+                    </article>
+                </div>
+
+                <div class="painel-grid">
+
+                    <section class="painel-card">
+                        <h2>Desempenho médio por bimestre</h2>
+                        <div class="barras">
+                            <div class="barra">
+                                <span style="--altura: 68%"></span>
+                                <p>1º</p>
+                            </div>
+                            <div class="barra">
+                                <span style="--altura: 75%"></span>
+                                <p>2º</p>
+                            </div>
+                            <div class="barra">
+                                <span style="--altura: 71%"></span>
+                                <p>3º</p>
+                            </div>
+                            <div class="barra">
+                                <span style="--altura: 82%"></span>
+                                <p>4º</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="painel-card">
+                        <h2>Próximas avaliações</h2>
+                        <ul class="lista-eventos">
+                            <li><span class="data-evento">12/08</span> Prova de Matemática - 9º A</li>
+                            <li><span class="data-evento">15/08</span> Redação - 3º ano</li>
+                            <li><span class="data-evento">19/08</span> Trabalho de Ciências - 7º B</li>
+                            <li><span class="data-evento">22/08</span> Simulado ENEM</li>
+                        </ul>
+                    </section>
+
+                    <section class="painel-card">
+                        <h2>Comunicados recentes</h2>
+                        <ul class="lista-comunicados">
+                            <li>Reunião de pais e responsáveis sábado, às 9h.</li>
+                            <li>Feira de Ciências acontece no dia 28/08.</li>
+                            <li>Prazo para rematrícula encerra em 30/09.</li>
+                        </ul>
+                    </section>
+
+                    <section class="painel-card">
+                        <h2>Alunos em destaque</h2>
+                        <div class="tabela-wrap">
+                            <table class="tabela">
+                                <thead>
+                                    <tr>
+                                        <th>Aluno</th>
+                                        <th>Turma</th>
+                                        <th>Média</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ana Souza</td>
+                                        <td>9º A</td>
+                                        <td>9,8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bruno Lima</td>
+                                        <td>8º B</td>
+                                        <td>9,5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Clara Nunes</td>
+                                        <td>9º A</td>
+                                        <td>9,3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diego Alves</td>
+                                        <td>7º A</td>
+                                        <td>9,1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+
+            </section>
+
         </main>
 
 

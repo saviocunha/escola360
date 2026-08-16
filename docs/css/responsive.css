@@ -1,0 +1,240 @@
+/* ==========================================================================
+   RESPONSIVE.CSS — Responsividade (media queries)
+   --------------------------------------------------------------------------
+   Ajustes de layout para telas menores. Este arquivo DEVE ser o último
+   importado no style.css para que as regras de media query tenham
+   prioridade sobre os estilos base.
+   Breakpoints usados: 768px (tablet/celular grande) e 480px (celulares
+   pequenos), além da acessibilidade para movimento reduzido.
+   ========================================================================== */
+
+/* ===== Tablets e celulares (até 768px) ===== */
+@media (max-width: 768px) {
+
+  /* Cabeçalho: reduz o espaçamento e centraliza os itens do menu */
+  .cabecalho {
+    padding: 15px 20px;
+  }
+
+  .cabecalho nav, .cabecalho ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* Cabeçalho um pouco mais compacto */
+  .cabecalho {
+    padding: 12px 3%;
+  }
+
+  .cabecalho-nav {
+    gap: clamp(12px, 4vw, 20px);
+  }
+
+  /* Menos espaço entre logo e texto */
+  .logo {
+    gap: 8px;
+  }
+
+  /* Home com padding menor */
+  .home {
+    padding: clamp(2rem, 4vw, 3rem) 1rem;
+  }
+
+  .home h1 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+  }
+
+  .botao {
+    font-size: 0.95rem;
+  }
+
+  .funcionalidades {
+    padding: 2rem 1rem;
+  }
+
+  /* Dashboard empilha o painel lateral acima do conteúdo */
+  .dashboard {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  /* Painel lateral ocupa a largura total, com o menu em chips */
+  .painel-lateral {
+    position: static;
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    padding: 0.5rem;
+  }
+
+  .painel-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .painel-nav li {
+    margin: 0;
+  }
+
+  .painel-sair {
+    margin: 0.5rem 0.5rem 0.5rem;
+    display: inline-block;
+  }
+}
+
+/* ===== Celulares pequenos (até 480px) ===== */
+@media (max-width: 480px) {
+
+  /* Mostra o botão hamburger no celular */
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* Menu escondido por padrão (altura 0).
+     Quando abre, vira uma lista vertical embaixo do cabeçalho. */
+  .cabecalho-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(235, 228, 228, 0.877);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    list-style: none;
+    width: 100%;
+    z-index: 999;
+  }
+
+  /* Quando o checkbox está marcado, o menu abre.
+     O ~ significa "irmão que vem depois":
+     checkbox marcado → encontra o nav depois dele → abre a lista. */
+  .menu-check:checked ~ nav .cabecalho-nav {
+    max-height: 500px;
+  }
+
+  /* Cada item do menu com uma linha separadora */
+  .cabecalho-nav li {
+    border-bottom: 1px solid #eaecf0;
+  }
+
+  .cabecalho-nav li a {
+    display: block;
+    padding: 1rem;
+    color: rgb(3, 3, 90);
+  }
+
+  .cabecalho-nav li a:hover {
+    background-color: rgba(235, 228, 228, 0.877);
+  }
+
+  /* Cabeçalho no celular */
+  .cabecalho {
+    padding: 10px 3%;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .logo img {
+    max-width: 35px;
+  }
+
+  /* Home no celular: textos menores e full width */
+  .home {
+    padding: 2rem 1rem;
+    max-width: 100%;
+  }
+
+  .home h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .home p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Botão ocupa a largura toda no celular */
+  .botao {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* Cards empilhados em uma coluna */
+  .cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card {
+    min-width: auto;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .funcionalidades {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Login ocupa melhor a tela pequena */
+  .login-card {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .login-section {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  /* Grade de cards do painel vira 1 coluna no celular */
+  .painel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stats do dashboard em 2 colunas */
+  .stat {
+    min-width: calc(50% - 0.6rem);
+  }
+
+  .boas-vindas h1 {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .rodape {
+    padding: 1rem;
+  }
+}
+
+/* ===== Acessibilidade — movimento reduzido =====
+   Se a pessoa pediu "menos animação" nas configurações do sistema,
+   o site quase zera animações e transições. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,263 @@
+/* ==========================================================================
+   DASHBOARD.CSS — Painel administrativo do gestor
+   --------------------------------------------------------------------------
+   Layout do dashboard (painel lateral + conteúdo), saudação, cartões de
+   estatísticas, grade de cards, gráfico de barras, listas de
+   eventos/comunicados e tabelas.
+   ========================================================================== */
+
+/* Layout principal: painel lateral à esquerda (largura fixa)
+   e conteúdo à direita, separados por 2rem. */
+.dashboard {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* ===== Painel lateral de navegação ===== */
+.painel-lateral {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 90px;
+  background-color: white;
+  border: 1px solid #eaecf0;
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+}
+
+.painel-nav {
+  list-style: none;
+}
+
+.painel-nav li {
+  margin-bottom: 0.3rem;
+}
+
+.painel-nav a {
+  display: block;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  color: #344054;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.painel-nav li.ativo a,
+.painel-nav a:hover {
+  background-color: #dbe9ff;
+  color: #16305c;
+}
+
+.painel-sair {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fbe4c4;
+  color: #7a4b12;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.painel-sair:hover {
+  background-color: #f6d5a2;
+}
+
+.painel-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Saudação (boas-vindas) ===== */
+.boas-vindas {
+  margin-bottom: 1.5rem;
+}
+
+.boas-vindas h1 {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.boas-vindas p {
+  color: #cbdbf0;
+  margin-top: 0.3rem;
+}
+
+/* ===== Cartões de estatísticas ===== */
+.stats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  flex: 1;
+  min-width: 150px;
+  border-radius: 14px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #03035a;
+}
+
+.stat-rotulo {
+  font-size: 0.85rem;
+  color: #344054;
+  font-weight: 600;
+}
+
+.stat-azul   { background-color: #dbe9ff; }
+.stat-verde  { background-color: #d4efd4; }
+.stat-laranja{ background-color: #fbe4c4; }
+.stat-roxo   { background-color: #e4dcf5; }
+
+/* ===== Grade de cards do painel ===== */
+.painel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.painel-card {
+  background-color: white;
+  border: 1px solid #eaecf0;
+  border-radius: 14px;
+  padding: 1.3rem;
+}
+
+.painel-card h2 {
+  color: #03035a;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Gráfico de barras ===== */
+.barras {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.2rem;
+  height: 150px;
+  padding-top: 0.5rem;
+}
+
+.barra {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.barra span {
+  width: 70%;
+  background-color: #1e5bd6;
+  border-radius: 6px 6px 0 0;
+  height: var(--altura);
+  min-height: 8px;
+}
+
+.barra p {
+  margin-top: 0.5rem;
+  color: #667085;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== Listas de eventos e comunicados ===== */
+.lista-eventos,
+.lista-comunicados {
+  list-style: none;
+}
+
+.lista-eventos li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f2f4f7;
+  color: #344054;
+  font-size: 0.9rem;
+}
+
+.lista-eventos li:last-child,
+.lista-comunicados li:last-child {
+  border-bottom: none;
+}
+
+.data-evento {
+  background-color: #dbe9ff;
+  color: #16305c;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.lista-comunicados li {
+  padding: 0.55rem 0 0.55rem 1.3rem;
+  position: relative;
+  border-bottom: 1px solid #f2f4f7;
+  color: #344054;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.lista-comunicados li::before {
+  content: "\25CF";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  color: #1e5bd6;
+  font-size: 0.7rem;
+}
+
+/* ===== Tabela ===== */
+.tabela-wrap {
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela th {
+  text-align: left;
+  color: #667085;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.tabela td {
+  padding: 0.6rem;
+  color: #344054;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}

@@ -5,30 +5,65 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <title>Suporte</title>
+        <title>Suporte - Escola360</title>
     </head>
 
     <body>
         
         <header class="cabecalho">
-
             <div class="logo">
-
                 <img src="../img/favicon.png" alt="Logo da Escola360">
                 <a href="../index.html">Escola360</a>
-
             </div>
-            
-            <ul class="cabecalho-nav">
-                <li><a href="sobre-nos.html">Sobre nós</a></li>
-                <li><a href="funcionalidades.html">Funcionalidades</a></li>
-                <li><a href="#suporte">Suporte</a></li>
-            </ul>
 
+            <input type="checkbox" id="menu-check" class="menu-check">
+
+            <label for="menu-check" class="menu-toggle" aria-label="Abrir menu">☰</label>
+
+            <nav>
+                <ul class="cabecalho-nav" id="nav-menu">
+                    <li><a href="sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                    <li><a href="suporte.html">Suporte</a></li>
+                </ul>
+            </nav>
         </header>
         <main>
-            <h1> OPS! Página em Construção...</h1>
+            <section class="suporte">
+                <p class="rotulo">SUPORTE</p>
+                <h2>Como podemos ajudar?</h2>
+                <p class="subtitulo">Tire suas dúvidas ou relate problemas. Nossa equipe responde o mais rápido possível.</p>
+
+                <div class="login-section">
+                    <div class="login-card">
+                        <h2>Fale conosco</h2>
+                        <form action="#" method="POST">
+                            <div class="grupo-campo">
+                                <label for="nome">Nome</label>
+                                <input class="campo-input" type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                            </div>
+
+                            <div class="grupo-campo">
+                                <label for="email">E-mail</label>
+                                <input class="campo-input" type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+
+                            <div class="grupo-campo">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea class="campo-textarea" id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+                            </div>
+
+                            <div class="entrar">
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class = "rodape">
