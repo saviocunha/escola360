@@ -405,8 +405,7 @@ hamburguer apenas com CSS, usando um `checkbox` oculto controlado por um
 dependência de script.
 
 **Volume do CSS.** Com um único arquivo de estilos passando de 600 linhas,
-achar e alterar uma regra virou um gargalo. Foram adicionados comentários
-delimitando cada bloco e criado um glossário das propriedades usadas, que
+achar e alterar uma regra virou um gargalo. Foi separado os códigos para cada página e criado um glossário das propriedades usadas, que
 serviu também como material de estudo para a equipe.
 
 
