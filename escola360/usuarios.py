@@ -9,9 +9,9 @@ from datetime import date
 from typing import List
 
 # Imports necessários para Professor (lancar_nota, registrar_frequencia)
-from avaliacao import Nota, Frequencia
+from escola360.avaliacao import Nota, Frequencia
 # Import necessário para Gestor (gerar_relatorio)
-from relatorios import Relatorio 
+from escola360.relatorios import Relatorio
 
 
 # ====================== INTERFACE (Classes Abstratas com métodos abstratos) ======================

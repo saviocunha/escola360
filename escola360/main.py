@@ -2,11 +2,10 @@
 from datetime import date
 
 # Importações de classes de outros módulos para uso na demonstração
-from usuarios import Professor, Gestor, Responsavel
-from aluno import Aluno
-from disciplinas import Disciplina
-# Importações de classes de avaliação (para visualização dos objetos)
-from avaliacao import Nota, Frequencia
+from escola360.usuarios import Professor, Gestor, Responsavel
+from escola360.aluno import Aluno
+from escola360.disciplinas import Disciplina
+
 
 def demo() -> None:
     """Função principal de demonstração do sistema."""

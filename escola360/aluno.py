@@ -1,9 +1,12 @@
 #Implementa a Classe Aluno e seus Métodos
 from __future__ import annotations
 from datetime import date
-from typing import List
+from typing import List, TYPE_CHECKING
 
-from usuarios import Usuario  # Aluno é uma especialização de Usuario
+from escola360.usuarios import Usuario  # Aluno é uma especialização de Usuario
+if TYPE_CHECKING:
+    from escola360.avaliacao import Nota, Frequencia
+    from escola360.usuarios import Responsavel
 
 
 class Aluno(Usuario):

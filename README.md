@@ -63,10 +63,10 @@ O projeto está organizado em módulos, cada um representando uma parte do domí
 
 ## Como Executar
 
-Certifique-se de ter o **Python 3.10+** instalado e que todos os arquivos estejam na mesma pasta. No terminal, navegue até a pasta do projeto e execute:
+Certifique-se de ter o **Python 3.10+** instalado. No terminal, navegue até a **pasta raiz do repositório** (aquela que contém a subpasta `escola360/`) e execute:
 
 ```bash
-python main.py
+python -m escola360.main
 ```
 
 Você deverá ver uma saída semelhante a:
