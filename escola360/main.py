@@ -17,7 +17,7 @@ def demo() -> None:
     # Criação do objeto Professor
     prof = Professor(
         id_usuario=1, email="joao@escola.com", senha="123",
-        cpf="111", telefone="9999", endereco="Rua X",
+        cpf="529.982.247-25", telefone="9999", endereco="Rua X",
         id_professor=10, nome="João Silva", data_nascimento=date(1980, 1, 1),
     )
     print(f"Professor criado: {prof.nome} (ID: {prof.id_professor})")
@@ -25,7 +25,7 @@ def demo() -> None:
     # Criação do objeto Aluno
     aluno_ana = Aluno(
         id_usuario=4, email="ana@escola.com", senha="123",
-        cpf="444", telefone="6666", endereco="Rua W",
+        cpf="111.444.777-35", telefone="6666", endereco="Rua W",
         id_aluno=40, nome="Ana Pereira", data_nascimento=date(2010, 5, 10),
     )
     

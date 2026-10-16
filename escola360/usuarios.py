@@ -7,19 +7,28 @@
 from abc import ABC, abstractmethod
 from datetime import date
 from typing import List
+import hashlib
+import hmac
+import os
+from itertools import count
+import re
 
-# Imports necessários para Professor (lancar_nota, registrar_frequencia)
+# Expressão regular para validação de e-mail.
+# Garante o formato basico 'usuario@dominio.extensao'.
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$") 
+
+# Imports de entidades relacionadas para criação de avaliações, frequências e relatórios.
 from escola360.avaliacao import Nota, Frequencia
-# Import necessário para Gestor (gerar_relatorio)
 from escola360.relatorios import Relatorio
 
-
-# ====================== INTERFACE (Classes Abstratas com métodos abstratos) ======================
+# =============================================================================
+# INTERFACES (Classes Abstratas Puras - Contratos)
+# =============================================================================
 
 class Autenticavel(ABC):
     """
-    Interface (Contrato) que define que qualquer classe que a implemente
-    deve ter o método fazer_login.
+    Interface/Contrato para qualquer entidade que exija autenticação no sistema.
+    Obrigada as sub-classes a implementar o método fazer_login.
     """
     @abstractmethod
     def fazer_login(self, email: str, senha: str) -> bool:
@@ -28,28 +37,38 @@ class Autenticavel(ABC):
 
 class GeradorRelatorio(ABC):
     """
-    Interface (Contrato) para classes que podem gerar relatórios.
-    Usada pelo Gestor.
+    Interface/Contrato para classes capazes de emitir relatórios administrativos.
+    Usada principalmente pela classe Gestor.
     """
     @abstractmethod
     def gerar_relatorio(self) -> "Relatorio":
+        """Gera e retorna uma nova instância de Relatorio."""
         raise NotImplementedError
         
-# ====================== CLASSE BASE (Herda de Autenticavel e ABC) ======================
+# =============================================================================
+# CLASSE BASE (Abstrata - Modelo de Usuário)
+# =============================================================================
+
 
 class Usuario(Autenticavel, ABC):
     """
-    Classe base abstrata para todos os usuários do sistema.
-    Contém os atributos e métodos comuns a todos os tipos de usuários.
+    Classe base abstrata para todos os atores do sistema.
+    Concentra o gerenciamento de identidade, segurança de senha e dados cadastrais.
     """
     def __init__(self, id_usuario: int, email: str, senha: str, cpf: str, telefone: str, endereco: str):
-        # Atributos privados de dados de login e contato/pessoal
-        self.__id_usuario = id_usuario
-        self.__email = email
-        self.__senha = senha # Armazenamento de senha em texto plano (simplificação didática)
-        self.__cpf = cpf
-        self.__telefone = telefone
-        self.__endereco = endereco
+        # A atribuição via propriedades (setters) garante que os dados passem
+        # pelas validações de negócio logo na instanciação (ex: CPF e e-mail).
+        self.id_usuario = id_usuario
+        self.email = email
+        self.cpf = cpf
+        self.telefone = telefone
+        self.endereco = endereco
+
+        # Criptografia de Senha: Gera um salt aleatório criptograficamente seguro (16 bytes)
+        # e armazena a senha derivada usando PBKDF2-HMAC-SHA256 para evitar senhas em texto puro.
+        salt = os.urandom(16)
+        self.__senha_salt = salt
+        self.__senha_hash = self._derivar_hash(senha, salt)
 
 # -------- getters / setters (Properties) -------
 # Implementa validações básicas em alguns setters (regras de negócio).
@@ -60,8 +79,9 @@ class Usuario(Autenticavel, ABC):
 
     @id_usuario.setter
     def id_usuario(self, value: int) -> None:
+        """Garante que o ID do usuário seja um inteiro positivo."""
         if value <= 0:
-            raise ValueError("id_usuario deve ser positivo") # Validação de ID
+            raise ValueError("id_usuario deve ser positivo")
         self.__id_usuario = value
 
     @property
@@ -70,18 +90,37 @@ class Usuario(Autenticavel, ABC):
 
     @email.setter
     def email(self, value: str) -> None:
-        if "@" not in value:
-            raise ValueError("email inválido") # Validação mínima de email
+        """Valida o formato do e-mail usando a regex do módulo antes de atribuir."""
+        if not _EMAIL_RE.match(value or ""):
+            raise ValueError(f'Email inválido: {value!r}')
         self.__email = value
 
     @property
     def cpf(self) -> str:
         return self.__cpf
 
+    @staticmethod
+    def validar_cpf(cpf:str) -> bool:
+        """
+        Método utilitário estático que implementa a validação matemática oficial de CPF:
+        1. Remove caracteres não numéricos.
+        2. Rejeita CPFs com menos de 11 dígitos ou com sequências repetidas (ex: 111.111.111-11).
+        3. Calcula os 2 dígitos verificadores através do cálculo ponderado de módulo 11.
+        """
+        d = re.sub(r"\D", "", cpf or "")
+        if len(d) != 11 or len(set(d)) ==1:
+            return False
+        for i in (9,10):
+            soma = sum(int(d[j])* (i + 1 - j) for j in range (i))
+            if (soma * 10) % 11 % 10 != int(d[i]):
+                return False
+        return True
+    
     @cpf.setter
-    def cpf(self, value: str) -> None:
-        if not value:
-            raise ValueError("cpf não pode ser vazio") # Validação de CPF
+    def cpf(self, value:str) -> None:
+        """Valida a integridade do CPF antes de salvá-lo."""
+        if not self.validar_cpf(value):
+            raise ValueError(f"CPF inválido: {value!r}")
         self.__cpf = value
 
     @property
@@ -100,18 +139,47 @@ class Usuario(Autenticavel, ABC):
     def endereco(self, value: str) -> None:
         self.__endereco = value
 
-   # --- operações de usuário ---
+    # -------------------------------------------------------------------------
+    # MÉTODOS DE AUTENTICAÇÃO E SEGURANÇA
+    # -------------------------------------------------------------------------
 
-    def fazer_login(self, email: str, senha: str) -> bool:
-        """Implementação concreta do método da interface Autenticavel."""
-        return self.__email == email and self.__senha == senha
+    @staticmethod
+    def _derivar_hash(senha:str, salt: bytes) -> bytes:
+        """Aplica a função de derivação de chave PBKDF2 com 260.000 iterações."""
+        return hashlib.pbkdf2_hmac("sha256", senha.encode("utf-8"), salt, 260_000)
+
+    def verificar_senha(self, senha:str) -> bool:
+        """
+        Deriva o hash da senha de teste usando o mesmo salt armazenado
+        e compara usando hmac.compare_digest para prevenir 'timing attacks'.
+        """
+        candidato = self._derivar_hash(senha, self.__senha_salt)
+        return hmac.compare_digest(candidato, self.__senha_hash)
+
+    def fazer_login(self, email:str, senha:str) -> bool:
+        """Implementação concreta do contrato Autenticavel."""
+        return self.email == email and self.verificar_senha(senha)
+
+    def alterar_senha(self, senha_atual: str, nova_senha:str) -> None:
+        """Valida a senha antiga, checa requisitos de complexidade e re-criptografa."""
+        if not self.verificar_senha(senha_atual):
+            raise ValueError ("Senha incorreta")
+        if len(nova_senha) < 8:
+            raise ValueError("Nova senha deve ter pelo menos 8 carateres")
+        salt = os.urandom(16)
+        self.__senha_salt = salt
+        self.__senha_hash = self._derivar_hash(nova_senha, salt)
+
+    # -------------------------------------------------------------------------
+    # OPERAÇÕES DE CRUD (Demonstração / Persistência)
+    # -------------------------------------------------------------------------
 
     def criar(self) -> None:
-        """Método de demonstração (CRUD)."""
+        """Simula a persistência do usuário no banco de dados."""
         print(f"[USUARIO] criando usuário {self.__id_usuario}")
 
     def ler(self) -> dict:
-        """Método de demonstração (CRUD). Retorna dados de leitura."""
+        """Retorna os dados cadastrais do usuário encapsulados em um dicionário."""
         return {
             "id": self.__id_usuario,
             "email": self.__email,
@@ -121,27 +189,24 @@ class Usuario(Autenticavel, ABC):
         }
 
     def atualizar(self, **dados) -> None:
-        """
-        Método de demonstração (CRUD). Atualiza atributos via setters/properties.
-        Permite atualizar atributos como email, telefone, etc.
-        """
+        """Atualiza dinamicamente atributos do usuário passando pelos setters correspondentes."""
         for campo, valor in dados.items():
             if hasattr(self.__class__, campo):
                 setattr(self, campo, valor)
 
     def excluir(self) -> None:
-        """Método de demonstração (CRUD)."""
+        """Simula a remoção do usuário do sistema."""
         print(f"[USUARIO] excluindo usuário {self.__id_usuario}")
 
-
-# ====================== SUBTIPOS DE USUARIO =========
+# =============================================================================
+# SUBCLASSES CONCRETAS DE USUARIO
+# =============================================================================
 
 # ====================== GESTOR ======================
-
 class Gestor(Usuario, GeradorRelatorio):
     """
-    Especialização de Usuario. Responsável por funções administrativas,
-    incluindo a geração de relatórios (implementa GeradorRelatorio).
+    Especialização de Usuario com perfil administrativo.
+    Herda características de Usuario e implementa a interface GeradorRelatorio.
     """
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
@@ -150,7 +215,7 @@ class Gestor(Usuario, GeradorRelatorio):
         self.__id_gestor = id_gestor
         self.__nome = nome
         self.__cargo = cargo
-        self.__relatorios: List["Relatorio"] = [] # Lista de relatórios gerados pelo gestor
+        self.__relatorios: List["Relatorio"] = [] 
 
     @property
     def id_gestor(self) -> int:
@@ -166,7 +231,7 @@ class Gestor(Usuario, GeradorRelatorio):
 
     @property
     def relatorios(self) -> List["Relatorio"]:
-        # Retorna uma cópia da lista (encapsulamento)
+        """Retorna uma cópia rasa da lista para preservar o encapsulamento do atributo privado."""
         return list(self.__relatorios)
 
     def gerar_relatorio(self) -> "Relatorio":
@@ -187,8 +252,8 @@ class Gestor(Usuario, GeradorRelatorio):
 
 class Professor(Usuario):
     """
-    Especialização de Usuario. Responsável pelo registro de notas e frequências.
-    Mantém registros do que lançou para fins de auditoria/consulta.
+    Especialização de Usuario responsável pela gestão pedagógica de alunos.
+    Orquestra o lançamento de notas e registros de presença/ausência.
     """
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
@@ -224,10 +289,10 @@ class Professor(Usuario):
                     data_avaliacao: date, tipo_avaliacao: str,
                     valor: float) -> "Nota":
         """
-        Cria um objeto Nota e sincroniza o relacionamento:
-        1. Adiciona Nota à lista de notas_lancadas do Professor.
-        2. Adiciona Nota à lista de notas do Aluno.
-        3. Adiciona Nota à lista de notas da Disciplina.
+        Cria uma Nota e realiza o vínculo bidirecional entre as entidades afetadas:
+        1. Valida o intervalo numérico da nota [0.0, 10.0].
+        2. Adiciona a Nota ao histórico do Professor.
+        3. Adiciona a Nota ao registro do Aluno e da Disciplina envolvida.
         """
         # Validação de regras de negócio (dupla verificação, mas essencial)
         if not (0.0 <= valor <= 10.0):
@@ -261,10 +326,8 @@ class Professor(Usuario):
     def registrar_frequencia(self, aluno: "Aluno", disciplina: "Disciplina",
                              data_aula: date, presente: bool) -> "Frequencia":
         """
-        Cria um objeto Frequencia e sincroniza o relacionamento:
-        1. Adiciona Frequencia à lista de frequencias do Professor.
-        2. Adiciona Frequencia à lista de frequencias do Aluno.
-        3. Adiciona Frequencia à lista de frequencias da Disciplina.
+        Cria um registro de Frequencia ('P' para presente, 'F' para falta)
+        e atualiza os históricos do Professor, Aluno e Disciplina.
         """
         
         # Cria o objeto Frequencia
@@ -294,8 +357,8 @@ class Professor(Usuario):
 
 class Responsavel(Usuario):
     """
-    Especialização de Usuario. Responsável por acompanhar o(s) Aluno(s) associado(s).
-    Mantém uma lista de alunos sob sua responsabilidade.
+    Especialização de Usuario representando pais/tutores legais dos alunos.
+    Permite o acompanhamento de um ou múltiplos estudantes.
     """
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
@@ -319,8 +382,8 @@ class Responsavel(Usuario):
 
     def adicionar_aluno(self, aluno: "Aluno") -> None:
         """
-        Adiciona um Aluno à lista de responsabilidade.
-        Sincroniza o relacionamento: Adiciona o Responsavel à lista de responsaveis do Aluno.
+        Associa um aluno a este responsável e realiza a sincronização bidirecional,
+        adicionando este responsável à lista de responsáveis do aluno.
         """
         if aluno not in self.__alunos:
             self.__alunos.append(aluno)
