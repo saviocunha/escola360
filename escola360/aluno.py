@@ -67,15 +67,15 @@ class Aluno(Usuario):
     # métodos internos (privados) usados por Professor e Responsavel para
     # manter a consistência do modelo (sincronização de relacionamentos)
 
-    def __adicionar_responsavel(self, responsavel: "Responsavel") -> None:
+    def _adicionar_responsavel(self, responsavel: "Responsavel") -> None:
         """Adiciona um Responsavel ao aluno (chamado por Responsavel.adicionar_aluno)."""
         if responsavel not in self.__responsaveis:
             self.__responsaveis.append(responsavel)
 
-    def __adicionar_nota(self, nota: "Nota") -> None:
+    def _adicionar_nota(self, nota: "Nota") -> None:
         """Adiciona uma Nota ao aluno (chamado por Professor.lancar_nota)."""
         self.__notas.append(nota)
 
-    def __adicionar_frequencia(self, frequencia: "Frequencia") -> None:
+    def _adicionar_frequencia(self, frequencia: "Frequencia") -> None:
         """Adiciona uma Frequencia ao aluno (chamado por Professor.registrar_frequencia)."""
         self.__frequencias.append(frequencia)

@@ -36,10 +36,10 @@ class Disciplina:
     # métodos internos (privados) usados pelo Professor para
     # manter a consistência do modelo (sincronização de relacionamentos)
 
-    def __adicionar_nota(self, nota: "Nota") -> None:
+    def _adicionar_nota(self, nota: "Nota") -> None:
         """Adiciona uma Nota à disciplina (chamado por Professor.lancar_nota)."""
         self.__notas.append(nota)
 
-    def __adicionar_frequencia(self, frequencia: "Frequencia") -> None:
+    def _adicionar_frequencia(self, frequencia: "Frequencia") -> None:
         """Adiciona uma Frequencia à disciplina (chamado por Professor.registrar_frequencia)."""
         self.__frequencias.append(frequencia)

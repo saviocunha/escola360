@@ -190,9 +190,11 @@ class Usuario(Autenticavel, ABC):
 
     def atualizar(self, **dados) -> None:
         """Atualiza dinamicamente atributos do usuário passando pelos setters correspondentes."""
+        permitidos = {'email', 'telefone','endereço'}
         for campo, valor in dados.items():
-            if hasattr(self.__class__, campo):
-                setattr(self, campo, valor)
+            if campo not in permitidos:
+                raise ValueError(f'campo não editável: {campo}')
+            setattr(self, campo, valor)
 
     def excluir(self) -> None:
         """Simula a remoção do usuário do sistema."""
@@ -240,7 +242,6 @@ class Gestor(Usuario, GeradorRelatorio):
         Cria um novo objeto Relatorio e o associa ao gestor.
         """
         relatorio = Relatorio(
-            id_relatorio=len(self.__relatorios) + 1,
             nome_relatorio=f"Relatório do gestor {self.__nome}",
             data_geracao=date.today(),
         )
@@ -301,7 +302,6 @@ class Professor(Usuario):
         
         # Cria o objeto Nota
         nota = Nota(
-            id_nota=len(self.__notas_lancadas) + 1,
             data_avaliacao=data_avaliacao,
             tipo_avaliacao=tipo_avaliacao,
             valor=valor,
@@ -316,10 +316,10 @@ class Professor(Usuario):
         # O acesso direto ao método privado ('_Classe__método') é usado aqui
         # para garantir a consistência do modelo de domínio, pois é o Professor
         # que orquestra o lançamento.
-        aluno._Aluno__adicionar_nota(nota)
+        aluno._adicionar_nota(nota)
         
         # 3. Adiciona ao registro da disciplina
-        disciplina._Disciplina__adicionar_nota(nota)
+        disciplina._adicionar_nota(nota)
         
         return nota
 
@@ -332,7 +332,6 @@ class Professor(Usuario):
         
         # Cria o objeto Frequencia
         freq = Frequencia(
-            id_frequencia=len(self.__frequencias) + 1,
             data_aula=data_aula,
             # Converte o booleano 'presente' para o status 'P' ou 'F'
             status_frequencia="P" if presente else "F",
@@ -345,10 +344,10 @@ class Professor(Usuario):
         self.__frequencias.append(freq)
         
         # 2. Adiciona ao registro do aluno (acesso ao método privado)
-        aluno._Aluno__adicionar_frequencia(freq)
+        aluno._adicionar_frequencia(freq)
         
         # 3. Adiciona ao registro da disciplina
-        disciplina._Disciplina__adicionar_frequencia(freq)
+        disciplina._adicionar_frequencia(freq)
         
         return freq
 
@@ -388,7 +387,7 @@ class Responsavel(Usuario):
         if aluno not in self.__alunos:
             self.__alunos.append(aluno)
             # Adiciona o Responsavel à lista do Aluno (sincronização de relacionamento)
-            aluno._Aluno__adicionar_responsavel(self)
+            aluno._adicionar_responsavel(self)
 
 
 

@@ -3,16 +3,18 @@
 
 from __future__ import annotations
 from datetime import date
+from itertools import count
 
 class Relatorio:
     """
     Classe simples para o objeto Relatorio, usado principalmente pela classe Gestor.
     Representa um documento gerado com informações específicas do sistema.
     """
-    def __init__(self, id_relatorio: int, nome_relatorio: str,
+    _ids = count(1)
+    def __init__(self, nome_relatorio: str,
                  data_geracao: date):
         # Atributos privados para encapsulamento
-        self.__id_relatorio = id_relatorio
+        self.__id_relatorio = next(Relatorio._ids)
         self.__nome_relatorio = nome_relatorio
         self.__data_geracao = data_geracao
 

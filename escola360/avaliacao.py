@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 from datetime import date
+from itertools import count
 
 # Importa a funcionalidade de anotações de tipo de importações futuras.
 # Permite referenciar classes que ainda não foram totalmente definidas.
@@ -14,7 +15,8 @@ class Nota:
     Representa o registro de uma nota obtida por um Aluno em uma Disciplina.
     Implementa validação de regra de negócio para o valor da nota (0.0 a 10.0).
     """
-    def __init__(self, id_nota: int, data_avaliacao: date,
+    _ids = count(1)
+    def __init__(self, data_avaliacao: date,
                  tipo_avaliacao: str, valor: float,
                  aluno: "Aluno", disciplina: "Disciplina"):
         # Regra de negócio: A nota deve estar entre 0.0 e 10.0
@@ -22,7 +24,7 @@ class Nota:
             raise ValueError("valor da nota deve estar entre 0 e 10")
         
         # Atributos privados para encapsulamento (usando '__').
-        self.__id_nota = id_nota
+        self.__id_nota = next(Nota._ids)
         self.__data_avaliacao = data_avaliacao
         self.__tipo_avaliacao = tipo_avaliacao  # Ex: 'Prova Mensal', 'Trabalho'
         self.__valor = valor
@@ -62,7 +64,8 @@ class Frequencia:
     Representa o registro de frequência de um Aluno em uma aula de Disciplina.
     Implementa validação para o status (P=Presente, F=Falta).
     """
-    def __init__(self, id_frequencia: int, data_aula: date,
+    _ids = count(1)
+    def __init__(self, data_aula: date,
                  status_frequencia: str, professor: "Professor",
                  aluno: "Aluno", disciplina: "Disciplina"):
         
@@ -71,7 +74,7 @@ class Frequencia:
             raise ValueError("status_frequencia deve ser 'P' ou 'F'")
         
         # Atributos privados
-        self.__id_frequencia = id_frequencia
+        self.__id_frequencia = next(Frequencia._ids)
         self.__data_aula = data_aula
         self.__status_frequencia = status_frequencia
         self.__professor = professor   # Referência ao Professor que registrou
