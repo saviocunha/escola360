@@ -14,6 +14,10 @@ class Aluno(Usuario):
     Especialização da classe Usuario.
     Representa o aluno e contém todas as suas informações e registros acadêmicos.
     """
+    @property
+    def tipo_usuario(self) -> str:
+        return "ALUNO"
+    
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
                  id_aluno: int, nome: str, data_nascimento: date):

@@ -55,6 +55,11 @@ class Usuario(Autenticavel, ABC):
     Classe base abstrata para todos os atores do sistema.
     Concentra o gerenciamento de identidade, segurança de senha e dados cadastrais.
     """
+    @property
+    @abstractmethod
+    def tipo_usuario(self) -> str:
+        ...
+    
     def __init__(self, id_usuario: int, email: str, senha: str, cpf: str, telefone: str, endereco: str):
         # A atribuição via propriedades (setters) garante que os dados passem
         # pelas validações de negócio logo na instanciação (ex: CPF e e-mail).
@@ -210,6 +215,10 @@ class Gestor(Usuario, GeradorRelatorio):
     Especialização de Usuario com perfil administrativo.
     Herda características de Usuario e implementa a interface GeradorRelatorio.
     """
+    @property
+    def tipo_usuario(self) -> str:
+        return "GESTOR"
+    
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
                  id_gestor: int, nome: str, cargo: str):
@@ -256,6 +265,10 @@ class Professor(Usuario):
     Especialização de Usuario responsável pela gestão pedagógica de alunos.
     Orquestra o lançamento de notas e registros de presença/ausência.
     """
+    @property
+    def tipo_usuario(self) -> str:
+        return "PROFESSOR"
+    
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
                  id_professor: int, nome: str, data_nascimento: date):
@@ -359,6 +372,10 @@ class Responsavel(Usuario):
     Especialização de Usuario representando pais/tutores legais dos alunos.
     Permite o acompanhamento de um ou múltiplos estudantes.
     """
+    @property
+    def tipo_usuario(self) -> str:
+        return "RESPONSAVEL"
+    
     def __init__(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
                  id_responsavel: int, nome: str):
