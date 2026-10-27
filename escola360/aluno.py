@@ -68,6 +68,18 @@ class Aluno(Usuario):
         """Retorna uma cópia da lista de todas as frequências do aluno."""
         return list(self.__frequencias)
 
+    def calcular_frequencia(self, disciplina) -> float:
+        """Calcula a % de presença do aluno em uma disciplina."""
+        freqs = [f for f in self.__frequencias if f.disciplina is disciplina]
+        if not freqs:
+            return 0.0
+        return sum(f.status_frequencia == "P" for f in freqs) / len(freqs)*100
+
+    def calcular_media(self, disciplina) -> float:
+        """Calcula a média das notas do aluno em uma disciplina."""
+        notas = [n.valor for n in self.__notas if n.disciplina is disciplina]
+        return sum(notas) / len(notas) if notas else 0.0
+
     # métodos internos (privados) usados por Professor e Responsavel para
     # manter a consistência do modelo (sincronização de relacionamentos)
 

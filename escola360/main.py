@@ -96,18 +96,14 @@ def demo() -> None:
     prof.registrar_frequencia(aluno_ana, disc_mat, date(2025, 11, 4), presente=True)
     prof.registrar_frequencia(aluno_ana, disc_mat, date(2025, 11, 5), presente=False) # Falta
 
-    # Filtra as frequências da Ana que são de Matemática
-    freqs_mat = [f for f in aluno_ana.frequencias if f.disciplina == disc_mat]
-    total_aulas = len(freqs_mat)
-    # Conta as presenças ('P')
-    presencas = sum(1 for f in freqs_mat if f.status_frequencia == 'P')
-    
-    # Calcula a porcentagem de frequência
-    porcentagem = (presencas / total_aulas) * 100 if total_aulas > 0 else 0
-    
-    print(f"Total de Aulas de {disc_mat.nome}: {total_aulas}")
-    print(f"Presenças: {presencas} | Faltas: {total_aulas - presencas}")
-    print(f"Porcentagem de Frequência: {porcentagem:.2f}%")
+    # O cálculo é feito próprio Aluno (método da classe)
+    porcentagem = aluno_ana.calcular_frequencia(disc_mat)
+    print(f"Porcentagem de Frequência em {disc_mat.nome}: {porcentagem:.2f}%")
+
+    # A média é calculada pelo metodo do Aluno
+    media = aluno_ana.calcular_media(disc_mat)
+    print(f"Media de {aluno_ana.nome} em {disc_mat.nome}: {media:.2f}")
+
 
     print("-" * 40)
 
