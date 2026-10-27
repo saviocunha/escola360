@@ -2,7 +2,10 @@
 # Define os métodos para a classe Disciplina.
 
 from __future__ import annotations
-from typing import List
+from typing import List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from escola360.avaliacao import Nota, Frequencia
 
 class Disciplina:
     """

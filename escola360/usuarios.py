@@ -6,7 +6,7 @@
 
 from abc import ABC, abstractmethod
 from datetime import date
-from typing import List
+from typing import List, TYPE_CHECKING
 import hashlib
 import hmac
 import os
@@ -20,6 +20,10 @@ _EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 # Imports de entidades relacionadas para criação de avaliações, frequências e relatórios.
 from escola360.avaliacao import Nota, Frequencia
 from escola360.relatorios import Relatorio
+
+if TYPE_CHECKING:
+    from escola360.aluno import Aluno
+    from escola360.disciplinas import Disciplina
 
 # =============================================================================
 # INTERFACES (Classes Abstratas Puras - Contratos)

@@ -5,10 +5,15 @@
 from __future__ import annotations
 from datetime import date
 from itertools import count
+from typing import TYPE_CHECKING
 
 # Importa a funcionalidade de anotações de tipo de importações futuras.
 # Permite referenciar classes que ainda não foram totalmente definidas.
 # (ex: "Aluno" e "Disciplina" dentro da classe Nota).
+if TYPE_CHECKING:
+    from escola360.aluno import Aluno
+    from escola360.disciplinas import Disciplina
+    from escola360.usuarios import Professor
 
 class Nota:
     """
