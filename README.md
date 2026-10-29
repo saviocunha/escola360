@@ -427,7 +427,7 @@ Se der certo (Verde): Seu código é integrado com segurança ao projeto princip
 
 Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a alteração quebrou o sistema, permitindo que você corrija antes que outros desenvolvedores sejam afetados.
 
-### ⚙️ Como um pipeline de CI funciona
+### Como um pipeline de CI funciona
 
 Um **pipeline** é a "linha de montagem" que o robô executa. Cada etapa é um passo da linha:
 
@@ -591,7 +591,7 @@ Troque `USUARIO` e `REPOSITORIO` na primeira linha deste README pelos seus dados
 
 ---
 
-## 💥 Veja o CI falhar de propósito
+## Faça o CI falhar de propósito
 
 Em `calculadora.py`, troque o `+` por `-`:
 
