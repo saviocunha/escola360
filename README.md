@@ -427,10 +427,11 @@ Se der certo (Verde): Seu código é integrado com segurança ao projeto princip
 
 Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a alteração quebrou o sistema, permitindo que você corrija antes que outros desenvolvedores sejam afetados.
 
-### Como um pipeline de CI funciona
+## Como um pipeline de CI funciona
 
 Um **pipeline** é a "linha de montagem" que o robô executa. Cada etapa é um passo da linha:
 
+|---|---|
 | **Checkout** | Baixa o código do repositório | `actions/checkout` |
 | **Setup** | Prepara a linguagem no ambiente | `actions/setup-python` |
 | **Dependências** | Instala as bibliotecas necessárias | `pip install -r requirements.txt` |
