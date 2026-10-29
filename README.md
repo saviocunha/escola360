@@ -431,7 +431,7 @@ Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a al
 
 Um Pipeline (ou esteira automatizada) é como se fosse uma linha de montagem de uma fábrica, só que para código de computador. É o caminho automático que o seu sistema faz desde a hora em que você termina de programar até o momento em que a novidade chega na tela do usuário.
 
-Em vez de você ter que enviar os arquivos para o servidor na mão — o que é demorado e fácil de dar erro —, a esteira faz tudo sozinha: ela junta o código, testa para ver se não quebrou nada, faz checagens de segurança e envia para o ar.
+Em vez de você ter que enviar os arquivos para o servidor na mão (o que é demorado e fácil de dar erro), a esteira faz tudo sozinha: ela junta o código, testa para ver se não quebrou nada, faz checagens de segurança e sobe para o sistema.
 
 Se a esteira encontrar qualquer erro pelo caminho (como um teste que não passou), ela para na hora. Isso garante que nenhum código quebrado chegue até os clientes.
 
