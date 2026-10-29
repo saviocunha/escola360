@@ -408,6 +408,24 @@ dependência de script.
 achar e alterar uma regra virou um gargalo. Foi separado os códigos para cada página e criado um glossário das propriedades usadas, que
 serviu também como material de estudo para a equipe.
 
+## O que é integração contínua e por que ela é importante para quem está aprendendo a programar?
+A Integração Contínua (CI) é a prática de integrar o código de toda a equipe ao repositório principal com frequência, utilizando um sistema automatizado para verificar se tudo continua funcionando a cada mudança. Esse processo auxilia os desenvolvedores oferecendo um feedback rápido ao detectar erros logo após o envio do código. Dessa forma, fica muito mais fácil identificar a causa do problema e corrigi-lo imediatamente.
+
+Além disso, a CI ajuda a evitar o clássico “na minha máquina funciona”, pois executa o código em um ambiente limpo. Isso revela dependências esquecidas, arquivos que só existiam no seu computador e divergências entre sistemas operacionais.
+
+Para quem está aprendendo, criar o hábito de testar o código é de extrema importância. Essa prática transforma a forma de trabalhar (eliminando o medo de quebrar o sistema), aprimora a arquitetura do código e prepara o aluno para o mercado de trabalho, que valoriza profissionais familiarizados com esteiras de CI/CD.
+
+**Exemplo prático de como a CI funciona no dia a dia:**
+
+- Você escreve o código: Altera uma função no sistema e faz o push (envio) para o repositório no Git.
+
+- A esteira entra em ação: O servidor de CI detecta a mudança, baixa o código em um ambiente limpo, compila a aplicação e roda os testes automatizados.
+
+- Você recebe o resultado em minutos:
+
+Se der certo (Verde): Seu código é integrado com segurança ao projeto principal.
+
+Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a alteração quebrou o sistema, permitindo que você corrija antes que outros desenvolvedores sejam afetados.
 
 ## Desenvolvedores
 
