@@ -429,186 +429,21 @@ Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a al
 
 ## Como um pipeline de CI funciona
 
-Um **pipeline** é a "linha de montagem" que o robô executa. Cada etapa é um passo da linha:
+Um Pipeline (ou esteira automatizada) é como se fosse uma linha de montagem de uma fábrica, só que para código de computador. É o caminho automático que o seu sistema faz desde a hora em que você termina de programar até o momento em que a novidade chega na tela do usuário.
 
-|---|---|
-| **Checkout** | Baixa o código do repositório | `actions/checkout` |
-| **Setup** | Prepara a linguagem no ambiente | `actions/setup-python` |
-| **Dependências** | Instala as bibliotecas necessárias | `pip install -r requirements.txt` |
-| **Lint** | Procura erros e problemas de estilo sem executar o código | `ruff check .` |
-| **Testes** | Executa os testes automatizados | `pytest` |
+Em vez de você ter que enviar os arquivos para o servidor na mão — o que é demorado e fácil de dar erro —, a esteira faz tudo sozinha: ela junta o código, testa para ver se não quebrou nada, faz checagens de segurança e envia para o ar.
 
-> 💡 **Ideia por trás da ordem: *fail fast* (falhar rápido).** As etapas mais rápidas vêm primeiro. Não faz sentido esperar 10 minutos de testes para descobrir um erro de digitação que o lint acharia em 2 segundos.
+Se a esteira encontrar qualquer erro pelo caminho (como um teste que não passou), ela para na hora. Isso garante que nenhum código quebrado chegue até os clientes.
 
-### Vocabulário essencial
+### As 4 Etapas do Pipeline
 
-- **Gatilho (*trigger*):** o evento que liga o robô (um `push`, um *pull request*...).
-- **Runner:** a máquina temporária que executa o pipeline. Nasce limpa e é descartada no final.
-- **Job:** um grupo de passos executado no mesmo runner.
-- **Step:** cada comando ou ação dentro de um job.
-- **Workflow:** o arquivo `.yml` que descreve tudo isso.
+[ 1. Código (Git) ] ➔ [ 2. CI (Build e Teste) ] ➔ [ 3. Homologação ] ➔ [ 4. Produção ]
 
-##  Como fazer seu primeiro pipeline:
-
-```
-meu-primeiro-ci/
-├── .github/
-│   └── workflows/
-│       └── ci.yml          ← o "manual de instruções" do robô
-├── calculadora.py          ← o código
-├── test_calculadora.py     ← os testes
-├── requirements.txt        ← as bibliotecas necessárias
-└── README.md
-```
-
-### Passo 1 · Crie o repositório
-
-No GitHub, clique em **New repository**, escolha um nome (por exemplo, `meu-primeiro-ci`), marque como **público** e clone para o seu computador:
-
-```bash
-git clone https://github.com/USUARIO/meu-primeiro-ci.git
-cd meu-primeiro-ci
-```
-
-### Passo 2 · Crie o código de exemplo
-
-**`calculadora.py`**
-
-```python
-def somar(a, b):
-    return a + b
-
-
-def dividir(a, b):
-    if b == 0:
-        raise ValueError("Não é possível dividir por zero.")
-    return a / b
-```
-
-### Passo 3 · Crie os testes
-
-**`test_calculadora.py`**
-
-```python
-import pytest
-
-from calculadora import somar, dividir
-
-
-def test_somar():
-    assert somar(2, 3) == 5
-
-
-def test_dividir():
-    assert dividir(10, 2) == 5
-
-
-def test_dividir_por_zero():
-    with pytest.raises(ValueError):
-        dividir(1, 0)
-```
-
-Cada função `test_...` é um **teste**: ela chama o código e confere (`assert`) se o resultado é o esperado.
-
-### Passo 4 · Liste as dependências
-
-**`requirements.txt`**
-
-```
-pytest
-ruff
-```
-
-### Passo 5 · Rode tudo na sua máquina primeiro
-
-Antes de entregar o trabalho ao robô, confira você mesmo:
-
-```bash
-pip install -r requirements.txt
-ruff check .
-pytest
-```
-
-Se aparecer `3 passed`, está tudo certo.
-
-### Passo 6 · Crie o workflow
-
-Crie a pasta `.github/workflows/` e, dentro dela, o arquivo **`ci.yml`**:
-
-```yaml
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-jobs:
-  verificar:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Baixar o código
-        uses: actions/checkout@v4
-
-      - name: Configurar o Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-
-      - name: Instalar dependências
-        run: pip install -r requirements.txt
-
-      - name: Lint (Ruff)
-        run: ruff check .
-
-      - name: Testes (pytest)
-        run: pytest
-```
-
-**Lendo o arquivo linha a linha:**
-
-| `name: CI` | Nome do workflow, que aparece na aba *Actions* |
-| `on: push / pull_request` | Gatilhos: roda a cada push na `main` e a cada pull request |
-| `jobs: verificar` | Define um job chamado "verificar" |
-| `runs-on: ubuntu-latest` | O runner será uma máquina Linux limpa |
-| `uses: ...` | Usa uma ação pronta, criada pela comunidade ou pelo GitHub |
-| `run: ...` | Executa um comando, igual ao que você digitaria no terminal |
-| `cache: pip` | Guarda as bibliotecas para as próximas execuções serem mais rápidas |
-
-### Passo 7 · Envie e acompanhe
-
-```bash
-git add .
-git commit -m "Adiciona calculadora, testes e pipeline de CI"
-git push
-```
-
-No GitHub, abra a aba **Actions**. Você verá o workflow rodando (🟡), e depois o resultado (✅ ou ❌). Clique nele para ver o que cada etapa fez.
-
-### Passo 8 · Coloque o selo no README
-
-Troque `USUARIO` e `REPOSITORIO` na primeira linha deste README pelos seus dados. O selo mostra o status atual do pipeline para quem visitar o projeto.
-
----
-
-## Faça o CI falhar de propósito
-
-Em `calculadora.py`, troque o `+` por `-`:
-
-```python
-def somar(a, b):
-    return a - b   # erro proposital
-```
-
-Faça commit e push. Em alguns minutos o pipeline ficará ❌. Para investigar:
-
-1. Abra a aba **Actions** e clique na execução com o ❌.
-2. Clique no job `verificar`.
-3. Abra a etapa marcada em vermelho (**Testes (pytest)**).
-4. Leia a mensagem: o pytest mostra qual teste falhou e qual valor era esperado.
-
-Desfaça o erro, envie de novo e veja o ✅ voltar. 
+- Gatilho (Trigger): Você termina uma alteração e faz o envio (push) para o repositório no Git. A esteira detecta essa mudança e começa a rodar sozinha.
+- Build: O servidor da esteira baixa o código e junta todas as peças do sistema em um ambiente limpo e neutro.
+- Testes Automatizados: A esteira executa testes de código programados. Se algum teste falhar, ela cancela tudo e manda uma notificação de erro.
+- Ambiente de Testes (Homologação / Staging): Se o código passar nos testes, a esteira instala a aplicação em um ambiente idêntico ao real, para que a equipe (ou ferramentas de checagem) possa ver o sistema funcionando na prática sem afetar os clientes reais.
+- Publicação (Deploy em Produção): Após ser validada no ambiente de testes, a esteira publica a nova versão no servidor oficial de produção. O recurso fica disponível imediatamente para os usuários finais.
 
 ## Desenvolvedores
 
