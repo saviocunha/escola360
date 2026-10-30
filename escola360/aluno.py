@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from escola360.usuarios import Responsavel
 
 
-class Aluno(Usuario):
+class Aluno(Usuario)
     """
     Especialização da classe Usuario.
     Representa o aluno e contém todas as suas informações e registros acadêmicos.
