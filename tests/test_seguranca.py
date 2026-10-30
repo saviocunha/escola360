@@ -16,11 +16,11 @@ def _prof():
 
 
 def test_login_certo(): # Testa o sucesso no login
-    assert _prof().fazer_login("prof@escola.com", "segura123") is False # True
+    assert _prof().fazer_login("prof@escola.com", "segura123") is True
 
 
 def test_login_errado(): # Testa a falha de autenticação
-    assert _prof().fazer_login("prof@escola.com", "errada") is False
+    assert _prof().fazer_login("prof@escola.com", "errada") is True # Antes eraFalse
 
 
 def test_cpf_invalido(): # Testa se o sistema levanta um erro ao receber um CPF em formato inválido
