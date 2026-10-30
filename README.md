@@ -420,6 +420,7 @@ Uma delas é a eliminação do medo de quebrar o sistema, já que a CI atua como
 Para quem está aprendendo, criar o hábito de testar o código é de extrema importância. Essa prática transforma a forma de trabalhar (eliminando o medo de quebrar o sistema), aprimora a arquitetura do código e prepara o aluno para o mercado de trabalho, que valoriza profissionais familiarizados com esteiras de CI/CD.
 
 Vale ressaltar que a equipe trabalhando com CI, tem mais facilidade para lançar novidades ou melhorias sem quebrar o sistema do usuário, como utilizar as Feature Flags: chaves de alternância no código que mantêm a nova funcionalidade "desligada" em produção até que esteja totalmente pronta e testada, sem precisar fazer um novo deploy.
+
 É importante também não confundir a Integração Contínua com o conceito de Pipeline, que é a esteira completa de publicação. A Integração Contínua é a etapa focada em juntar o código e garantir que ele está funcionando através dos testes. Já o Pipeline é o caminho inteiro que o programa percorre: ele pega o código aprovado pela CI, faz checagens extras de segurança e instala o sistema automaticamente no servidor final para que os usuários possam usá-lo. 
 
 **Exemplo prático de como a CI funciona no dia a dia:**
