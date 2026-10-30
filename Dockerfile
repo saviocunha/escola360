@@ -14,7 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
 
-
-
 # Comando para rodar a aplicação quando o contêiner iniciar
 CMD ["python", "-m", "escola360.main"]
