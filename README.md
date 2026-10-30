@@ -371,12 +371,12 @@ disciplinas, notas e frequência.
 
 ### Divisão das tarefas
 
-| Integrante | Frente de trabalho |
+| Integrante | Responsabilidades |
 |---|---|
 | Francisco Savio | Home Page, arquitetura de pastas, relatórios |
 | Beatriz Benigno | Página de Funcionalidades , identidade visual, menu hambúrguer responsivo, relatórios |
-| Diogo Sousa | Tela de login completa (campos, botão, "Lembrar-me", recuperação de senha) correções de responsividade, relatórios |
-| Junior Ferreira | Página "Sobre nós", relatórios |
+| Diogo Sousa | Tela de login completa (campos, botão, "Lembrar-me", recuperação de senha), correções de responsividade, relatórios |
+| Junior Ferreira | Página "Sobre nós" e relatórios |
 
 ### Uso do GitHub e estratégia de versionamento
 
@@ -408,6 +408,51 @@ dependência de script.
 achar e alterar uma regra virou um gargalo. Foi separado os códigos para cada página e criado um glossário das propriedades usadas, que
 serviu também como material de estudo para a equipe.
 
+## O que é integração contínua e por que ela é importante para quem está aprendendo a programar?
+A Integração Contínua (CI) é a prática de integrar o código de toda a equipe ao repositório principal com frequência, utilizando um sistema automatizado para verificar se tudo continua funcionando a cada mudança. 
+Esse processo auxilia os desenvolvedores oferecendo um feedback rápido ao detectar erros logo após o envio do código. 
+Dessa forma, fica muito mais fácil identificar a causa do problema e corrigi-lo imediatamente.
+
+Entender e praticar a Integração Contínua traz vantagens cruciais para quem está aprendendo a programar, 
+pois o aprendizado da programação vai além de memorizar a sintaxe de uma linguagem, envolvendo também hábitos de trabalho em equipe e entrega segura. 
+Uma delas é a eliminação do medo de quebrar o sistema, já que a CI atua como uma rede de segurança onde qualquer engano é detectado pelos testes automatizados em poucos minutos, permitindo correções rápidas antes que a falha cause prejuízos, pois testa o programa em um ambiente totalmente limpo e padronizado, revelando arquivos esquecidos no computador ou diferenças entre sistemas operacionais
+
+Para quem está aprendendo, criar o hábito de testar o código é de extrema importância. Essa prática transforma a forma de trabalhar (eliminando o medo de quebrar o sistema), aprimora a arquitetura do código e prepara o aluno para o mercado de trabalho, que valoriza profissionais familiarizados com esteiras de CI/CD.
+
+Vale ressaltar que a equipe trabalhando com CI, tem mais facilidade para lançar novidades ou melhorias sem quebrar o sistema do usuário, como utilizar as Feature Flags: chaves de alternância no código que mantêm a nova funcionalidade "desligada" em produção até que esteja totalmente pronta e testada, sem precisar fazer um novo deploy.
+
+É importante também não confundir a Integração Contínua com o conceito de Pipeline, que é a esteira completa de publicação. A Integração Contínua é a etapa focada em juntar o código e garantir que ele está funcionando através dos testes. 
+Já o Pipeline é o caminho inteiro que o programa percorre: ele pega o código aprovado pela CI, faz checagens extras de segurança e instala o sistema automaticamente no servidor final para que os usuários possam usá-lo. 
+
+**Exemplo prático de como a CI funciona no dia a dia:**
+
+- Você escreve o código: Altera uma função no sistema e faz o push (envio) para o repositório no Git.
+
+- A esteira entra em ação: O servidor de CI detecta a mudança, baixa o código em um ambiente limpo, compila a aplicação e roda os testes automatizados.
+
+- Você recebe o resultado em minutos:
+
+Se der certo (Verde): Seu código é integrado com segurança ao projeto principal.
+
+Se der erro (Vermelho): A esteira te avisa imediatamente o local exato onde a alteração quebrou o sistema, permitindo que você corrija antes que outros desenvolvedores sejam afetados.
+
+## Como um pipeline de CI funciona
+
+Um Pipeline (ou esteira automatizada) é como se fosse uma linha de montagem de uma fábrica, só que para código de computador. É o caminho automático que o seu sistema faz desde a hora em que você termina de programar até o momento em que a novidade chega na tela do usuário.
+
+Em vez de você ter que enviar os arquivos para o servidor na mão (o que é demorado e fácil de dar erro), a esteira faz tudo sozinha: ela junta o código, testa para ver se não quebrou nada, faz checagens de segurança e sobe para o sistema.
+
+Se a esteira encontrar qualquer erro pelo caminho (como um teste que não passou), ela para na hora. Isso garante que nenhum código quebrado chegue até os clientes.
+
+### As 4 Etapas do Pipeline
+
+[ 1. Código (Git) ] ➔ [ 2. CI (Build e Teste) ] ➔ [ 3. Homologação ] ➔ [ 4. Produção ]
+
+- Gatilho (Trigger): Você termina uma alteração e faz o envio (push) para o repositório no Git. A esteira detecta essa mudança e começa a rodar sozinha.
+- Build: O servidor da esteira baixa o código e junta todas as peças do sistema em um ambiente limpo e neutro.
+- Testes Automatizados: A esteira executa testes de código programados. Se algum teste falhar, ela cancela tudo e manda uma notificação de erro.
+- Ambiente de Testes (Homologação / Staging): Se o código passar nos testes, a esteira instala a aplicação em um ambiente idêntico ao real, para que a equipe (ou ferramentas de checagem) possa ver o sistema funcionando na prática sem afetar os clientes reais.
+- Publicação (Deploy em Produção): Após ser validada no ambiente de testes, a esteira publica a nova versão no servidor oficial de produção. O recurso fica disponível imediatamente para os usuários finais.
 
 ## Desenvolvedores
 
