@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from escola360.usuarios import Responsavel
 
 
-class Aluno(Usuario)
+class Aluno(Usuario):
     """
     Especialização da classe Usuario.
     Representa o aluno e contém todas as suas informações e registros acadêmicos.
@@ -18,7 +18,7 @@ class Aluno(Usuario)
     def tipo_usuario(self) -> str:
         return "ALUNO"
     
-    def __init__(self, id_usuario: int, email: str, senha: str,
+    def __init_(self, id_usuario: int, email: str, senha: str,
                  cpf: str, telefone: str, endereco: str,
                  id_aluno: int, nome: str, data_nascimento: date):
         super().__init__(id_usuario, email, senha, cpf, telefone, endereco)
