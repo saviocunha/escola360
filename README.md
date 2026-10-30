@@ -421,7 +421,8 @@ Para quem está aprendendo, criar o hábito de testar o código é de extrema im
 
 Vale ressaltar que a equipe trabalhando com CI, tem mais facilidade para lançar novidades ou melhorias sem quebrar o sistema do usuário, como utilizar as Feature Flags: chaves de alternância no código que mantêm a nova funcionalidade "desligada" em produção até que esteja totalmente pronta e testada, sem precisar fazer um novo deploy.
 
-É importante também não confundir a Integração Contínua com o conceito de Pipeline, que é a esteira completa de publicação. A Integração Contínua é a etapa focada em juntar o código e garantir que ele está funcionando através dos testes. Já o Pipeline é o caminho inteiro que o programa percorre: ele pega o código aprovado pela CI, faz checagens extras de segurança e instala o sistema automaticamente no servidor final para que os usuários possam usá-lo. 
+É importante também não confundir a Integração Contínua com o conceito de Pipeline, que é a esteira completa de publicação. A Integração Contínua é a etapa focada em juntar o código e garantir que ele está funcionando através dos testes. 
+Já o Pipeline é o caminho inteiro que o programa percorre: ele pega o código aprovado pela CI, faz checagens extras de segurança e instala o sistema automaticamente no servidor final para que os usuários possam usá-lo. 
 
 **Exemplo prático de como a CI funciona no dia a dia:**
 
