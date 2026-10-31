@@ -16,5 +16,3 @@ COPY . .
 
 # Comando para rodar a aplicação quando o contêiner iniciar
 CMD ["python", "-m", "escola360.main"]
-
-INSTRUCAO_INVALIDA
