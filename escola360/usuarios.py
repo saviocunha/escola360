@@ -138,7 +138,7 @@ class Usuario(Autenticavel, ABC):
 
     @telefone.setter
     def telefone(self, value: str) -> None:
-        self.__telefne = value
+        self.__telefone = value
 
     @property
     def endereco(self) -> str:
