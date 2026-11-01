@@ -28,4 +28,3 @@ def test_cpf_invalido(): # Testa se o sistema levanta um erro ao receber um CPF 
         p = _prof()
         p.cpf = "111"
 
-print(variavel_que_nao_existe)
